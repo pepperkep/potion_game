@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8692153831362143659}
   - component: {fileID: 6757607388536905024}
   - component: {fileID: 2940598018013670302}
+  - component: {fileID: 3079288384789444294}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -142,3 +143,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragCamera: {fileID: 0}
+--- !u!114 &3079288384789444294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8312631750748496273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d739ddde02867ee6a378c606c246250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaken: 0
+  shakeThreshold: 30
+  changeDirectionAmount: 10

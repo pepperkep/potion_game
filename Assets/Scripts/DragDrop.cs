@@ -11,21 +11,22 @@ public class DragDrop : MonoBehaviour
     private Vector3 offset = Vector3.zero;
     // Camera mouse coordinates are in reference to
     [SerializeField] private Camera dragCamera;
+    private Rigidbody2D dragBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dragBody = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //set object position to mouse position when being dragged
         if(isDragged)
         {
             Vector3 worldMousePosition = dragCamera.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = worldMousePosition + offset;
+            dragBody.MovePosition(worldMousePosition + offset);
         }
     }
 
