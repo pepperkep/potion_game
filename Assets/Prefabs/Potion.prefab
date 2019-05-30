@@ -158,3 +158,4 @@ MonoBehaviour:
   shaken: 0
   shakeThreshold: 30
   changeDirectionAmount: 10
+  changeColor: {r: 0.57254905, g: 0.8352941, b: 0.9019608, a: 1}

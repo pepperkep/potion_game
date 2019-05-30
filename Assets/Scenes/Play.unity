@@ -415,6 +415,31 @@ PrefabInstance:
       propertyPath: dragCamera
       value: 
       objectReference: {fileID: 1601017185}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: shakeThreshold
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: maxShakeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeDirectionAmount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeDirectionThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: shakeAngle
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}
 --- !u!1001 &4931212623029032795

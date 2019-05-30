@@ -7,11 +7,15 @@ public class Potion : MonoBehaviour
 
     public bool shaken = false;
     public int shakeThreshold = 200;
-    public int changeDirectionAmount = 10;
-    private int currentDirectionAmount = 0;
+    public float maxShakeTime = 2f;
+    public int shakeAngle = 30;
+    public Color changeColor;
     private int shakeAmount = 0;
     private Vector3 lastPosition;
     private Vector3 lastDisplacment;
+    private SpriteRenderer displaySprite;
+    private float shakeTime = 0f;
+    private bool isShaking = false;
     
 
     // Start is called before the first frame update
@@ -19,26 +23,37 @@ public class Potion : MonoBehaviour
     {
         lastPosition = transform.position;
         lastDisplacment = Vector3.zero;
+        displaySprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 displacement = transform.position - lastPosition;
-        lastPosition = transform.position;
-        if(currentDirectionAmount < changeDirectionAmount && displacement.magnitude > 0)
+        if(Vector3.Angle(displacement, lastDisplacment) > shakeAngle)
         {
-            currentDirectionAmount++;
             shakeAmount++;
+            isShaking = true;
         }
-        if(Vector3.Dot(displacement, lastDisplacment) < 0)
+        else
         {
-            currentDirectionAmount = 0;
+            if(shakeTime > maxShakeTime)
+            {
+                shakeAmount = 0;
+                isShaking = false;
+                shakeTime = 0;
+            }
         }
+        lastPosition = transform.position;
         lastDisplacment = displacement;
         if(shakeAmount > shakeThreshold)
         {
             shaken = true;
+            displaySprite.color = changeColor;
+        }
+        if(isShaking)
+        {
+            shakeTime += Time.deltaTime;
         }
     }
 }
