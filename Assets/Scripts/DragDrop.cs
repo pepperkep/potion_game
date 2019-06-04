@@ -43,4 +43,8 @@ public class DragDrop : MonoBehaviour
     {
         isDragged = false;
     }
+
+    public bool GetIsDragging(){
+        return this.isDragged;
+    }
 }

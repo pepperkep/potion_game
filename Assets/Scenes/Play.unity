@@ -418,12 +418,12 @@ PrefabInstance:
     - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: shakeThreshold
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: maxShakeTime
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
@@ -438,7 +438,7 @@ PrefabInstance:
     - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: shakeAngle
-      value: 40
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}

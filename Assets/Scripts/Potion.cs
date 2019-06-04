@@ -10,6 +10,8 @@ public class Potion : MonoBehaviour
     public float maxShakeTime = 2f;
     public int shakeAngle = 30;
     public Color changeColor;
+    [SerializeField] private Explosion explosionPrefab;
+    private DragDrop dragComponent;
     private int shakeAmount = 0;
     private Vector3 lastPosition;
     private Vector3 lastDisplacment;
@@ -24,6 +26,7 @@ public class Potion : MonoBehaviour
         lastPosition = transform.position;
         lastDisplacment = Vector3.zero;
         displaySprite = gameObject.GetComponent<SpriteRenderer>();
+        dragComponent = gameObject.GetComponent<DragDrop>();
     }
 
     // Update is called once per frame
@@ -54,6 +57,11 @@ public class Potion : MonoBehaviour
         if(isShaking)
         {
             shakeTime += Time.deltaTime;
+        }
+        if(shaken && !dragComponent.GetIsDragging())
+        {
+            Instantiate(explosionPrefab, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }
