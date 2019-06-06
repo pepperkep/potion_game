@@ -60,8 +60,22 @@ public class Potion : MonoBehaviour
         }
         if(shaken && !dragComponent.GetIsDragging())
         {
-            Instantiate(explosionPrefab, this.transform.position, this.transform.rotation);
-            Destroy(this.gameObject);
+            Explode();
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Explosion")
+        {
+            Explode();
+        }
+
+    }
+
+    public void Explode()
+    {
+        Instantiate(explosionPrefab, this.transform.position, this.transform.rotation);
+        Destroy(this.gameObject);
     }
 }

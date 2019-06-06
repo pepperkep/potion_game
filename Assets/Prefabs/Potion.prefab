@@ -142,7 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdbea1a6e6415fb2ad86f99302c6264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragCamera: {fileID: 0}
+  dragCamera: {fileID: 7492774077957701695, guid: 6112ceb026d66422284f96a36eca7f83,
+    type: 3}
 --- !u!114 &3079288384789444294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaken: 0
-  shakeThreshold: 30
-  maxShakeTime: 2
-  shakeAngle: 50
+  shakeThreshold: 2
+  maxShakeTime: 0.5
+  shakeAngle: 40
   changeColor: {r: 0.57254905, g: 0.8352941, b: 0.9019608, a: 1}
   explosionPrefab: {fileID: 8219067053384688174, guid: 397447408eb1e724d963062ee5f52727,
     type: 3}
