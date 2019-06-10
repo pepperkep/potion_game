@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaken: 0
-  shakeThreshold: 3
-  maxShakeTime: 0.2
-  shakeAngle: 30
+  shakeThreshold: 4
+  maxShakeTime: 0.05
+  shakeAngle: 20
   changeColor: {r: 0.57254905, g: 0.8352941, b: 0.9019608, a: 1}
   explosionPrefab: {fileID: 8219067053384688174, guid: 397447408eb1e724d963062ee5f52727,
     type: 3}

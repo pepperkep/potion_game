@@ -59,8 +59,7 @@ public class Potion_Generator : MonoBehaviour
     public void CreatePotion(Vector3 potionPosition)
     {
         GameObject nextPotion = PotionPrefabs[Random.Range(0, PotionPrefabs.Count)];
-        nextPotion = Instantiate(nextPotion, potionPosition, Quaternion.identity, transform);
-        nextPotion.transform.localScale = new Vector3(nextPotion.transform.localScale.x / transform.localScale.x, nextPotion.transform.localScale.y / transform.localScale.y, 1);
+        nextPotion = Instantiate(nextPotion, potionPosition, Quaternion.identity);
         nextPotion.gameObject.GetComponent<DragDrop>().DragCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 }
