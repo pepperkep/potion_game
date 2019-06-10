@@ -13,6 +13,12 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private Camera dragCamera;
     private Rigidbody2D dragBody;
 
+    public Camera DragCamera
+    {
+        get => dragCamera;
+        set => dragCamera = value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
