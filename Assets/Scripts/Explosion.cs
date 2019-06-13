@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [Tooltip("Time explosion radius is active")]
     [SerializeField] private float duration = 50f;
-    private float timeSpent = 0;
+    [SerializeField] private float damage = 5f;
+    [SerializeField] private string explosionPoolName = "";
 
-    // Start is called before the first frame update
-    void Start()
+    public float Duration
     {
-        
+        get => duration;
+        set => duration = value;
+    }
+    public float Damage
+    {
+        get => damage;
+        set => damage = value;
     }
 
-    // Update is called once per frame
+    //Time explosion has been on screen
+    private float timeSpent = 0;
+
+    void OnEnable()
+    {
+        timeSpent = 0;
+    }
+
+    // Destroy potion when tinme exceeds duration
     void Update()
     {
         timeSpent += Time.deltaTime;
-        if(timeSpent > duration)
+        if(timeSpent > Duration)
         {
-            Destroy(this.gameObject);
+            ObjectPool.Instance.AddToPool(explosionPoolName, this.gameObject);
         }
     }
 }

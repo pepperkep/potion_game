@@ -5,20 +5,57 @@ using UnityEngine;
 public class Potion : MonoBehaviour
 {
 
-    public bool shaken = false;
-    public int shakeThreshold = 200;
-    public float maxShakeTime = 2f;
-    public int shakeAngle = 30;
-    public Color changeColor;
-    [SerializeField] private Explosion explosionPrefab;
+    [Tooltip("Potion will explode when released if shaken")]
+    [SerializeField] private bool shaken = false;
+    [Tooltip("Color of shaken explosion")]
+    [SerializeField] private Color changeColor;
+    [Tooltip("Explosion instantiated when shaken potion is released")]
+    [SerializeField] private string explosionPoolName = "";
+    [Header("Potion Shake Requirements")]
+    [Tooltip("Times direction must be changed to shake potion")]
+    [SerializeField] private int shakeThreshold = 200;
+    [Tooltip("Time all direction changes must happen to be shaken. Times shaken resets after this amount of time.")]
+    [SerializeField] private float maxShakeTime = 2f;
+    [Tooltip("Minimum angle of direction change for it to count towards the shake threshold.")]
+    [SerializeField] private int shakeAngle = 30;
+
+    public bool Shaken{
+        get => shaken;
+        set => shaken = value;
+    }
+    public Color ChangeColor{
+        get => changeColor;
+        set => changeColor = value;
+    }
+    public int ShakeThreshold
+    {
+        get => shakeThreshold;
+        set => shakeThreshold = value;
+    } 
+    public float MaxShakeTime
+    {
+        get => maxShakeTime;
+        set => maxShakeTime = value;
+    }
+    public int ShakeAngle
+    {
+        get => shakeAngle;
+        set => shakeAngle = value;
+    }
+    //Drag drop component to get if potion is being dragged
     private DragDrop dragComponent;
+    //current shaken amount
     private int shakeAmount = 0;
+    //Last position to determine displacement next update
     private Vector3 lastPosition;
+    //Last displament to determine if direction has changed
     private Vector3 lastDisplacment;
+    //Sprite rendering component to effect sprite on shaken
     private SpriteRenderer displaySprite;
+    //Amount of time since shaking started
     private float shakeTime = 0f;
+    //Whether currently in the state of shaking
     private bool isShaking = false;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -32,38 +69,52 @@ public class Potion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Determine current displacement
         Vector3 displacement = transform.position - lastPosition;
-        if(Vector3.Angle(displacement, lastDisplacment) > shakeAngle)
+
+        //Increase shake amount if angle is large enough
+        if(Vector3.Angle(displacement, lastDisplacment) > ShakeAngle)
         {
             shakeAmount++;
             isShaking = true;
         }
         else
         {
-            if(shakeTime > maxShakeTime)
+            //Reset shake amount if too much time has passed
+            if(shakeTime > MaxShakeTime)
             {
                 shakeAmount = 0;
                 isShaking = false;
                 shakeTime = 0;
             }
         }
+
+        //Store information needed for next update
         lastPosition = transform.position;
         lastDisplacment = displacement;
-        if(shakeAmount > shakeThreshold)
+
+        //Change state to shaken if shake threshold has been reached
+        if(shakeAmount > ShakeThreshold)
         {
-            shaken = true;
-            displaySprite.color = changeColor;
+            Shaken = true;
+            displaySprite.color = ChangeColor;
         }
+
+        //Update time shince shaking startyed
         if(isShaking)
         {
             shakeTime += Time.deltaTime;
         }
-        if(shaken && !dragComponent.GetIsDragging())
+
+        //Explode if shaken and no longer being dragged
+        if(Shaken && !dragComponent.GetIsDragging())
         {
             Explode();
         }
     }
 
+
+    //Explode on contact with another expolsion
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Explosion")
@@ -73,9 +124,10 @@ public class Potion : MonoBehaviour
 
     }
 
+    //Instantiate explosion
     public void Explode()
     {
-        Instantiate(explosionPrefab, this.transform.position, this.transform.rotation);
+        ObjectPool.Instance.SpawnObject(explosionPoolName, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);
     }
 }

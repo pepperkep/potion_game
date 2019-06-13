@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275ac1b57023ac33d9c6b66b24878cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToGenerate: 5
+  timeToGenerate: 3
   maxPotionCount: 6
   potionPrefabs:
   - {fileID: 8312631750748496273, guid: 32118094695afaebdba5e22512d73842, type: 3}
