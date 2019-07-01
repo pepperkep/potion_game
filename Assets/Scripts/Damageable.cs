@@ -5,14 +5,19 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private int startHealth = 20;
+    [SerializeField] private float currentHealth = 0;
+    [SerializeField] private string poolName = null;
 
-    public int StartHealth{
+    public int StartHealth
+    {
         get => startHealth;
         set => startHealth = value;
     }
-
-    private float currentHealth = 0;
-    
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +29,19 @@ public class Damageable : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            Kill();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    public void Kill()
     {
-        if(col.tag == "Explosion")
+        if(poolName != "")
         {
-            currentHealth -= col.GetComponent<Explosion>().Damage;
+            ObjectPool.Instance.AddToPool(poolName, this.gameObject);
         }
-
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

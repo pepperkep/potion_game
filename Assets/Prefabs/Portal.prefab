@@ -92,10 +92,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9053c1f8279590bef9fafdaddf18d527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5, type: 3}
+  enemyPoolNames:
+  - BasicEnemy
   baseSpawnRate: 8
   spawnRateMultiplier: 0.5
   spawnRateMultipyTime: 20
   minEnemyHeight: -3
   maxEnemyHeight: 5
+  continueSpawning: 1

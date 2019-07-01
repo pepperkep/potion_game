@@ -6,18 +6,12 @@ public class Explosion : MonoBehaviour
 {
     [Tooltip("Time explosion radius is active")]
     [SerializeField] private float duration = 50f;
-    [SerializeField] private float damage = 5f;
     [SerializeField] private string explosionPoolName = "";
 
     public float Duration
     {
         get => duration;
         set => duration = value;
-    }
-    public float Damage
-    {
-        get => damage;
-        set => damage = value;
     }
 
     //Time explosion has been on screen

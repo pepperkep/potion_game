@@ -5,17 +5,18 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
 
-    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<string> enemyPoolNames;
     [SerializeField] private float baseSpawnRate;
     [SerializeField] private float spawnRateMultiplier;
     [SerializeField] private float spawnRateMultipyTime;
     [SerializeField] private float minEnemyHeight;
     [SerializeField] private float maxEnemyHeight;
+    [SerializeField] private bool continueSpawning = true;
 
-    public List<GameObject> EnemyPrefabs
+    public List<string> EnemyPoolNames
     {
-        get => enemyPrefabs;
-        set => enemyPrefabs = value;
+        get => enemyPoolNames;
+        set => enemyPoolNames = value;
     }
     public float BaseSpawnRate
     {
@@ -42,6 +43,11 @@ public class EnemyGenerator : MonoBehaviour
         get => maxEnemyHeight;
         set => maxEnemyHeight = value;
     }
+    public bool ContinueSpawning
+    {
+        get => continueSpawning;
+        set => continueSpawning = value;
+    }
     
     private float currentSpawnRate;
     private float timeSinceSpawn = 0;
@@ -56,17 +62,19 @@ public class EnemyGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceSpawn += Time.deltaTime;
-        timeSinceRateChange += Time.deltaTime;
-        if(timeSinceSpawn > currentSpawnRate)
-        {
-            Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)], new Vector3(transform.position.x, Random.Range(MinEnemyHeight, MaxEnemyHeight), transform.position.z), Quaternion.identity);
-            timeSinceSpawn = 0;
-        }
-        if(timeSinceRateChange > SpawnRateMultipyTime)
-        {
-            currentSpawnRate *= SpawnRateMultiplier;
-            timeSinceRateChange = 0;
+        if(ContinueSpawning){
+            timeSinceSpawn += Time.deltaTime;
+            timeSinceRateChange += Time.deltaTime;
+            if(timeSinceSpawn > currentSpawnRate)
+            {
+                ObjectPool.Instance.SpawnObject(EnemyPoolNames[Random.Range(0, EnemyPoolNames.Count)], new Vector3(transform.position.x, Random.Range(MinEnemyHeight, MaxEnemyHeight), transform.position.z), Quaternion.identity);
+                timeSinceSpawn = 0;
+            }
+            if(timeSinceRateChange > SpawnRateMultipyTime)
+            {
+                currentSpawnRate *= SpawnRateMultiplier;
+                timeSinceRateChange = 0;
+            }
         }
     }
 }

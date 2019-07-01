@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3426459933519177009}
   - component: {fileID: 8681280363691876899}
   - component: {fileID: 1895243657339185939}
+  - component: {fileID: 3645611499279024466}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 10
+  currentHealth: 0
+  poolName: BasicEnemy
 --- !u!114 &1895243657339185939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,5 +158,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f3557a7db44f9c2858593e0459ef01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -1, y: 0}
+  target: {fileID: 0}
   speed: 2
+--- !u!114 &3645611499279024466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596127672799892620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401172f1a4344bcc881c69f71b5f058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damagePlayer: 1
+  damageEnemies: 0
+  destroyonDamage: 1
+  poolName: BasicEnemy
