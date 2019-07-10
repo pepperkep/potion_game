@@ -43,4 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beac8c6b13c4ae908ad5b33905d0f2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools: []
+  pools:
+  - name: BasicExplosion
+    prefab: {fileID: 6676658419632500141, guid: 397447408eb1e724d963062ee5f52727,
+      type: 3}
+    size: 50
+  - name: BasicEnemy
+    prefab: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
+      type: 3}
+    size: 50
+  - name: ElectricExplosion
+    prefab: {fileID: 5538610360540141496, guid: 40ae55da623ac030cbe83a1e3c8ea504,
+      type: 3}
+    size: 50
+  - name: StunEffect
+    prefab: {fileID: 6340107636804924883, guid: 314e2a9283e57eaaf9ebad6acaf30e95,
+      type: 3}
+    size: 40
+  - name: BasicBullet
+    prefab: {fileID: 6340107636804924883, guid: 314e2a9283e57eaaf9ebad6acaf30e95,
+      type: 3}
+    size: 150

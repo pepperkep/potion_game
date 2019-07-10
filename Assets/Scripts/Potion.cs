@@ -18,6 +18,9 @@ public class Potion : MonoBehaviour
     [SerializeField] private float maxShakeTime = 2f;
     [Tooltip("Minimum angle of direction change for it to count towards the shake threshold.")]
     [SerializeField] private int shakeAngle = 30;
+    [Tooltip("Time for potion to explode after being triggered by another explosion")]
+    [SerializeField] private float fuseTime = 2.0f;
+    [SerializeField] private int explosionColorChanges = 10;
 
     public bool Shaken{
         get => shaken;
@@ -42,6 +45,11 @@ public class Potion : MonoBehaviour
         get => shakeAngle;
         set => shakeAngle = value;
     }
+    public float FuseTime{
+        get => fuseTime;
+        set => fuseTime = value;
+    }
+
     //Drag drop component to get if potion is being dragged
     private DragDrop dragComponent;
     //current shaken amount
@@ -119,15 +127,34 @@ public class Potion : MonoBehaviour
     {
         if(col.tag == "Explosion")
         {
-            Explode();
+            StartCoroutine("ExplodeAfterTime", FuseTime);
         }
 
+    }
+
+    public IEnumerator ExplodeAfterTime(float timeToExplode)
+    {
+        Color startColor = displaySprite.color;
+        float waitTime = timeToExplode / explosionColorChanges;
+        for(int i = 0; i < explosionColorChanges; i++)
+        {
+            if(i % 2 == 0)
+            {
+                displaySprite.color = changeColor;
+            }
+            else
+            {
+                displaySprite.color = startColor;
+            }
+            yield return new WaitForSeconds(waitTime);
+        }
+        Explode();
     }
 
     //Instantiate explosion
     public void Explode()
     {
-        ObjectPool.Instance.SpawnObject(explosionPoolName, this.transform.position, this.transform.rotation);
+        ObjectPool.Instance.SpawnObject(explosionPoolName, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 1), this.transform.rotation);
         Destroy(this.gameObject);
     }
 }

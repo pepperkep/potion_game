@@ -63,7 +63,7 @@ public class PotionGenerator : MonoBehaviour
 
             //If a spawn location is found spawn a potion
             if(startPlace.y < endHeight)
-                CreatePotion(new Vector3(startPlace.x + generatorSize.x/2, startPlace.y + boxAreaHeight/2, -1));
+                CreatePotion(new Vector3(startPlace.x + generatorSize.x/2, startPlace.y + boxAreaHeight/2, -2));
 
             //Reset timer
             timeSincePotion = 0f;

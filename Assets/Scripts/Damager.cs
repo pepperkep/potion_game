@@ -7,8 +7,10 @@ public class Damager : MonoBehaviour
     [SerializeField] private float damage = 5f;
     [SerializeField] private bool damagePlayer;
     [SerializeField] private bool damageEnemies;
-    [SerializeField] private bool destroyonDamage = false;
-    [SerializeField] private string poolName = null;
+    [SerializeField] private bool destroyOnDamage = false;
+    [Tooltip("Pool object will return to. Object will be destroyed if pool name is an empty string.")]
+    [SerializeField] private string returnPoolName = null;
+    [SerializeField] private string debuffPoolName = null;
     public float Damage
     {
         get => damage;
@@ -26,20 +28,24 @@ public class Damager : MonoBehaviour
     }
     public bool DestroyOnDamage
     {
-        get => destroyonDamage;
-        set => destroyonDamage = value;
+        get => destroyOnDamage;
+        set => destroyOnDamage = value;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if((col.CompareTag("Target") && DamagePlayer) || (col.tag == "Enemy" && DamageEnemies))
+        if((col.CompareTag("Target") && DamagePlayer) || (col.CompareTag("Enemy") && DamageEnemies))
         {
             col.GetComponent<Damageable>().CurrentHealth -= damage;
+            if(col.CompareTag("Enemy") && DamageEnemies && debuffPoolName != "")
+            {
+                ObjectPool.Instance.SpawnObject(debuffPoolName, transform.position, transform.rotation, col.transform).GetComponent<TempEffect>();
+            }
             if(DestroyOnDamage)
             {
-                if(poolName != "")
+                if(returnPoolName != "")
                 {
-                    ObjectPool.Instance.AddToPool(poolName, this.gameObject);
+                    ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
                 }
                 else
                 {

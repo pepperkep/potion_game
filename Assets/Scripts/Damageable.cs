@@ -6,7 +6,8 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] private int startHealth = 20;
     [SerializeField] private float currentHealth = 0;
-    [SerializeField] private string poolName = null;
+    [Tooltip("Pool object will return to. Object will be destroyed if pool name is an empty string.")]
+    [SerializeField] private string returnPoolName = null;
 
     public int StartHealth
     {
@@ -35,9 +36,9 @@ public class Damageable : MonoBehaviour
 
     public void Kill()
     {
-        if(poolName != "")
+        if(returnPoolName != "")
         {
-            ObjectPool.Instance.AddToPool(poolName, this.gameObject);
+            ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
         }
         else
         {

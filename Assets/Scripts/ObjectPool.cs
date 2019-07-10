@@ -44,7 +44,7 @@ public class ObjectPool : MonoBehaviour
         
     }
 
-    public GameObject SpawnObject(string name, Vector3 position, Quaternion rotation)
+    public GameObject SpawnObject(string name, Vector3 position, Quaternion rotation, Transform newParent = null)
     {
         if(!poolsDictionary.ContainsKey(name))
         {
@@ -68,10 +68,10 @@ public class ObjectPool : MonoBehaviour
             spawnObject = Instantiate(prefabToSpawn);
         }
 
-        spawnObject.SetActive(true);
         spawnObject.transform.position = position;
         spawnObject.transform.rotation = rotation;
-        spawnObject.transform.parent = null;
+        spawnObject.transform.parent = newParent;
+        spawnObject.SetActive(true);
 
         return spawnObject;
     }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6676658419632500141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3461ec665f193fb1b87371c22568ab0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.5
   explosionPoolName: BasicExplosion
+  stuns: 0
 --- !u!114 &7123109323900946957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401172f1a4344bcc881c69f71b5f058a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 7.5
   damagePlayer: 0
   damageEnemies: 1
+  destroyOnDamage: 0
+  returnPoolName: 
+  debuffPoolName: 

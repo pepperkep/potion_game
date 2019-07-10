@@ -11,6 +11,10 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float spawnRateMultipyTime;
     [SerializeField] private float minEnemyHeight;
     [SerializeField] private float maxEnemyHeight;
+    [SerializeField] private int burstNumber;
+    [SerializeField] private float burstMultiplier;
+    [SerializeField] private float burstTime;
+    [SerializeField] private float burstInterval;
     [SerializeField] private bool continueSpawning = true;
 
     public List<string> EnemyPoolNames
@@ -43,6 +47,26 @@ public class EnemyGenerator : MonoBehaviour
         get => maxEnemyHeight;
         set => maxEnemyHeight = value;
     }
+    public int BurstNumber
+    {
+        get => burstNumber;
+        set => burstNumber = value;
+    }
+    public float BurstMultiplier
+    {
+        get => burstMultiplier;
+        set => burstMultiplier = value;
+    }
+    public float BurstTime
+    {
+        get => burstTime;
+        set => burstTime = value;
+    }
+    public float BurstInterval
+    {
+        get => burstInterval;
+        set => burstInterval = value;
+    }
     public bool ContinueSpawning
     {
         get => continueSpawning;
@@ -52,11 +76,14 @@ public class EnemyGenerator : MonoBehaviour
     private float currentSpawnRate;
     private float timeSinceSpawn = 0;
     private float timeSinceRateChange = 0;
+    private float currentBurstAmount;
+    private float timeSinceBurst = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSpawnRate = BaseSpawnRate;
+        currentBurstAmount = BurstNumber;
     }
 
     // Update is called once per frame
@@ -65,9 +92,10 @@ public class EnemyGenerator : MonoBehaviour
         if(ContinueSpawning){
             timeSinceSpawn += Time.deltaTime;
             timeSinceRateChange += Time.deltaTime;
+            timeSinceBurst += Time.deltaTime;
             if(timeSinceSpawn > currentSpawnRate)
             {
-                ObjectPool.Instance.SpawnObject(EnemyPoolNames[Random.Range(0, EnemyPoolNames.Count)], new Vector3(transform.position.x, Random.Range(MinEnemyHeight, MaxEnemyHeight), transform.position.z), Quaternion.identity);
+                SpawnEnemy(EnemyPoolNames[Random.Range(0, EnemyPoolNames.Count)], Random.Range(MinEnemyHeight, MaxEnemyHeight));
                 timeSinceSpawn = 0;
             }
             if(timeSinceRateChange > SpawnRateMultipyTime)
@@ -75,6 +103,26 @@ public class EnemyGenerator : MonoBehaviour
                 currentSpawnRate *= SpawnRateMultiplier;
                 timeSinceRateChange = 0;
             }
+            if(timeSinceBurst > BurstTime)
+            {
+                timeSinceBurst = 0;
+                StartCoroutine("EnemyBurst", currentBurstAmount);
+                currentBurstAmount *= BurstMultiplier;
+            }
+        }
+    }
+
+    public void SpawnEnemy(string typeName, float height)
+    {
+        ObjectPool.Instance.SpawnObject(typeName, new Vector3(transform.position.x, height, transform.position.z), Quaternion.identity);
+    }
+
+    public IEnumerator EnemyBurst(int enemyNumber)
+    {
+        for(int i = 0; i < enemyNumber; i++)
+        {
+            SpawnEnemy(EnemyPoolNames[Random.Range(0, EnemyPoolNames.Count)], Random.Range(MinEnemyHeight, MaxEnemyHeight));
+            yield return new WaitForSeconds(BurstInterval);
         }
     }
 }

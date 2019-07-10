@@ -229,10 +229,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target
       objectReference: {fileID: 0}
+    - target: {fileID: -1794765405303543116, guid: c1f1dfbd089595837a0d623d89360bea,
+        type: 3}
+      propertyPath: poolName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 383386730868120912, guid: c1f1dfbd089595837a0d623d89360bea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 383386730868120912, guid: c1f1dfbd089595837a0d623d89360bea,
         type: 3}
@@ -353,43 +358,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[0].name
-      value: BasicExplosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[0].prefab
-      value: 
-      objectReference: {fileID: 6676658419632500141, guid: 397447408eb1e724d963062ee5f52727,
-        type: 3}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[0].size
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[1].name
-      value: BasicEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
-        type: 3}
-    - target: {fileID: 6745156099898967357, guid: 1604bfc947ac85572ad3c3de311e731f,
-        type: 3}
-      propertyPath: pools.Array.data[1].size
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1604bfc947ac85572ad3c3de311e731f, type: 3}
 --- !u!1001 &1832190199322145891
@@ -407,7 +375,7 @@ PrefabInstance:
     - target: {fileID: 5056734693297751864, guid: e87872d7ea0e20a7b8809bc349099ac3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5056734693297751864, guid: e87872d7ea0e20a7b8809bc349099ac3,
         type: 3}
@@ -476,7 +444,7 @@ PrefabInstance:
     - target: {fileID: 2895329410753598693, guid: a21d7996ad21a7845b212f720892ca0b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2895329410753598693, guid: a21d7996ad21a7845b212f720892ca0b,
         type: 3}
@@ -542,6 +510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 7370114549663667977, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
+        type: 3}
+      propertyPath: continueSpawning
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3045721543740138847, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 3045721543740138847, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3045721543740138847, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
         type: 3}
@@ -597,11 +570,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7370114549663667977, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
-        type: 3}
-      propertyPath: continueSpawning
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a, type: 3}
 --- !u!1001 &4931212623029032795
@@ -619,7 +587,7 @@ PrefabInstance:
     - target: {fileID: 3019381592776923674, guid: 2d9a3e08d8a63fc22a4b1bea0f9bf1c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 3019381592776923674, guid: 2d9a3e08d8a63fc22a4b1bea0f9bf1c6,
         type: 3}

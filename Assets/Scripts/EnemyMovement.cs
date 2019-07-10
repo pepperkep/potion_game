@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private Transform target;
     [SerializeField] private float speed = 5f;
+    private int numberOfStuns = 0;
+    
     public Transform Target
     {
         get => target;
@@ -16,6 +18,11 @@ public class EnemyMovement : MonoBehaviour
     {
         get => speed;
         set => speed = value;
+    }
+    public int NumberOfStuns
+    {
+        get => numberOfStuns;
+        set => numberOfStuns = value;
     }
 
     private Rigidbody2D enemybody;
@@ -36,7 +43,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        enemybody.MovePosition(enemybody.position + new Vector2(transform.right.x, transform.right.y) * Speed * Time.fixedDeltaTime);
+        if(NumberOfStuns == 0)
+        {
+            enemybody.MovePosition(enemybody.position + new Vector2(transform.right.x, transform.right.y) * Speed * Time.fixedDeltaTime);
+        }
     }
 
     void Update()

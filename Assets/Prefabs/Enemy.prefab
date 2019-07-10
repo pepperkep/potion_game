@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5596127672799892620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.0399225, y: -0.18270034, z: -0.107421875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 10
   currentHealth: 0
-  poolName: BasicEnemy
+  returnPoolName: BasicEnemy
 --- !u!114 &1895243657339185939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,5 +175,6 @@ MonoBehaviour:
   damage: 5
   damagePlayer: 1
   damageEnemies: 0
-  destroyonDamage: 1
-  poolName: BasicEnemy
+  destroyOnDamage: 1
+  returnPoolName: BasicEnemy
+  debuffPoolName: 

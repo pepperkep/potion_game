@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7893917547564115363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 8, z: 1}
+  m_LocalScale: {x: 1, y: 8, z: 1}
   m_Children:
   - {fileID: 5324184887360782775}
   m_Father: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   maxPotionCount: 6
   potionPrefabs:
   - {fileID: 8312631750748496273, guid: 32118094695afaebdba5e22512d73842, type: 3}
+  - {fileID: 6007222613536842529, guid: 60758d2225f57bb52b96ef6513cff2a0, type: 3}
 --- !u!1 &8527726907555709995
 GameObject:
   m_ObjectHideFlags: 0
