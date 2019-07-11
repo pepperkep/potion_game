@@ -32,12 +32,12 @@ public class Damager : MonoBehaviour
         set => destroyOnDamage = value;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if((col.CompareTag("Target") && DamagePlayer) || (col.CompareTag("Enemy") && DamageEnemies))
+        if((col.gameObject.CompareTag("Target") && DamagePlayer) || (col.gameObject.CompareTag("Enemy") && DamageEnemies))
         {
-            col.GetComponent<Damageable>().CurrentHealth -= damage;
-            if(col.CompareTag("Enemy") && DamageEnemies && debuffPoolName != "")
+            col.gameObject.GetComponent<Damageable>().CurrentHealth -= damage;
+            if(col.gameObject.CompareTag("Enemy") && DamageEnemies && debuffPoolName != "")
             {
                 ObjectPool.Instance.SpawnObject(debuffPoolName, transform.position, transform.rotation, col.transform).GetComponent<TempEffect>();
             }

@@ -104,3 +104,5 @@ MonoBehaviour:
   burstTime: 35
   burstInterval: 0.2
   continueSpawning: 1
+  enemyTarget: {fileID: 383386730868120914, guid: c1f1dfbd089595837a0d623d89360bea,
+    type: 3}

@@ -16,6 +16,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float burstTime;
     [SerializeField] private float burstInterval;
     [SerializeField] private bool continueSpawning = true;
+    [SerializeField] private GameObject enemyTarget;
 
     public List<string> EnemyPoolNames
     {
@@ -72,6 +73,11 @@ public class EnemyGenerator : MonoBehaviour
         get => continueSpawning;
         set => continueSpawning = value;
     }
+    public GameObject EnemyTarget
+    {
+        get => enemyTarget;
+        set => enemyTarget = value;
+    }
     
     private float currentSpawnRate;
     private float timeSinceSpawn = 0;
@@ -114,7 +120,8 @@ public class EnemyGenerator : MonoBehaviour
 
     public void SpawnEnemy(string typeName, float height)
     {
-        ObjectPool.Instance.SpawnObject(typeName, new Vector3(transform.position.x, height, transform.position.z), Quaternion.identity);
+        GameObject newEnemy = ObjectPool.Instance.SpawnObject(typeName, new Vector3(transform.position.x, height, transform.position.z), Quaternion.identity);
+        newEnemy.GetComponent<EnemyMovement>().Target = EnemyTarget.transform;
     }
 
     public IEnumerator EnemyBurst(int enemyNumber)

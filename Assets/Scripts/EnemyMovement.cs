@@ -12,7 +12,13 @@ public class EnemyMovement : MonoBehaviour
     public Transform Target
     {
         get => target;
-        set => target = value;
+        set
+        {
+            target = value;
+            Vector3 dir = target.position - transform.position;
+            float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
     public float Speed
     {
@@ -32,12 +38,11 @@ public class EnemyMovement : MonoBehaviour
     {
         //Store refrences for componenets
         enemybody = gameObject.GetComponent<Rigidbody2D>();
-        damageComponenet = gameObject.GetComponent<Damageable>();
+    }
 
-        Target = GameObject.FindWithTag("Target").transform;
-        Vector3 dir = Target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    void OnEnable()
+    {
+        NumberOfStuns = 0;
     }
 
     // Update is called once per frame
@@ -46,14 +51,6 @@ public class EnemyMovement : MonoBehaviour
         if(NumberOfStuns == 0)
         {
             enemybody.MovePosition(enemybody.position + new Vector2(transform.right.x, transform.right.y) * Speed * Time.fixedDeltaTime);
-        }
-    }
-
-    void Update()
-    {
-        if(Target == null)
-        {
-            damageComponenet.Kill();
         }
     }
 }

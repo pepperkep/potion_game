@@ -123,9 +123,9 @@ public class Potion : MonoBehaviour
 
 
     //Explode on contact with another expolsion
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.tag == "Explosion")
+        if(col.gameObject.tag == "Explosion")
         {
             StartCoroutine("ExplodeAfterTime", FuseTime);
         }
