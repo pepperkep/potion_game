@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9071496981533537936}
   - component: {fileID: 6239316002744394207}
   - component: {fileID: 1834431228401577142}
+  - component: {fileID: 8818131205311870760}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401172f1a4344bcc881c69f71b5f058a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1
   damagePlayer: 0
   damageEnemies: 1
   destroyOnDamage: 1
@@ -115,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 8
-  isEnemy: 0
 --- !u!50 &6239316002744394207
 Rigidbody2D:
   serializedVersion: 4
@@ -163,3 +163,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8818131205311870760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954170559593166020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db3f125d72a38a07af0e7b99fa20a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkTime: 5
+  destroyBoundary:
+    serializedVersion: 2
+    x: -9
+    y: -5
+    width: 18
+    height: 10
+  poolReturnName: BasicBullet

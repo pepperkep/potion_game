@@ -164,7 +164,7 @@ MonoBehaviour:
   shakeThreshold: 7
   maxShakeTime: 1
   shakeAngle: 30
-  fuseTime: 1
+  fuseTime: 0.5
   explosionColorChanges: 6
 --- !u!114 &9072679766609120034
 MonoBehaviour:

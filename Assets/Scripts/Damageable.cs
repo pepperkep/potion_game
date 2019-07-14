@@ -5,7 +5,7 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private int startHealth = 20;
-    [SerializeField] private float currentHealth = 0;
+    private float currentHealth = 0;
     [Tooltip("Pool object will return to. Object will be destroyed if pool name is an empty string.")]
     [SerializeField] private string returnPoolName = null;
 
@@ -36,6 +36,14 @@ public class Damageable : MonoBehaviour
 
     public void Kill()
     {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            TempEffect childEffect;
+            if((childEffect = transform.GetChild(i).GetComponent<TempEffect>()) != null)
+            {
+                childEffect.KillEffect();
+            }
+        }
         if(returnPoolName != "")
         {
             ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);

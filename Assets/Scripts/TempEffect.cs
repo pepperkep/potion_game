@@ -20,6 +20,11 @@ public abstract class TempEffect : MonoBehaviour
         StartCoroutine(effectRoutine);
     }
 
+    public void KillEffect()
+    {
+        ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
+    }
+
     private IEnumerator ApplyEffect()
     {
         int count = 0;

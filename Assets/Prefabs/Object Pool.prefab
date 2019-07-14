@@ -51,7 +51,7 @@ MonoBehaviour:
   - name: BasicEnemy
     prefab: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
       type: 3}
-    size: 50
+    size: 30
   - name: ElectricExplosion
     prefab: {fileID: 5538610360540141496, guid: 40ae55da623ac030cbe83a1e3c8ea504,
       type: 3}
@@ -61,6 +61,10 @@ MonoBehaviour:
       type: 3}
     size: 40
   - name: BasicBullet
-    prefab: {fileID: 6340107636804924883, guid: 314e2a9283e57eaaf9ebad6acaf30e95,
+    prefab: {fileID: 2954170559593166020, guid: 4de496a941051ab9aa54243a074ff054,
       type: 3}
     size: 150
+  - name: BigEnemy
+    prefab: {fileID: 7906562595524549853, guid: 9d2151a8b8ab95e7891ae306bb3d03f6,
+      type: 3}
+    size: 30
