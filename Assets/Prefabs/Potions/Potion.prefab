@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 6757607388536905024}
   - component: {fileID: 2940598018013670302}
   - component: {fileID: 3079288384789444294}
-  - component: {fileID: 9072679766609120034}
-  - component: {fileID: 5232356239110336985}
   m_Layer: 9
   m_Name: Potion
   m_TagString: Untagged
@@ -33,7 +31,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.381, y: -0.513, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 612962857535624500}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -166,27 +165,45 @@ MonoBehaviour:
   shakeAngle: 30
   fuseTime: 0.5
   explosionColorChanges: 6
---- !u!114 &9072679766609120034
-MonoBehaviour:
+--- !u!1 &8801334416581513198
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8312631750748496273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2ca959405e7044a877d92592640421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawnPoolName: BasicBullet
-  shotInterval: 0.5
---- !u!58 &5232356239110336985
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612962857535624500}
+  - component: {fileID: 7745562258163053673}
+  - component: {fileID: 2162721824721691271}
+  m_Layer: 9
+  m_Name: Passive Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612962857535624500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801334416581513198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2362803634176274595}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7745562258163053673
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8312631750748496273}
+  m_GameObject: {fileID: 8801334416581513198}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -196,3 +213,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.5
+--- !u!114 &2162721824721691271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801334416581513198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2ca959405e7044a877d92592640421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoolName: BasicBullet
+  shotInterval: 0.5

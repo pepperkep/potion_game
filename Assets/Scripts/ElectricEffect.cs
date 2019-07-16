@@ -10,7 +10,7 @@ public class ElectricEffect : TempEffect
     {
         if(transform.parent != null)
         {
-            targetComponent = transform.parent.GetComponent<EnemyMovement>();
+            targetComponent = transform.parent.GetComponent<Movement>();
         }
         else
         {
@@ -22,7 +22,7 @@ public class ElectricEffect : TempEffect
     {
         if(targetComponent != null)
         {
-            ((EnemyMovement)targetComponent).NumberOfStuns++;
+            ((Movement)targetComponent).NumberOfStuns++;
         }
     }
 
@@ -30,7 +30,7 @@ public class ElectricEffect : TempEffect
     {
         if(targetComponent != null)
         {
-            ((EnemyMovement)targetComponent).NumberOfStuns--;
+            ((Movement)targetComponent).NumberOfStuns--;
         }
     }
 }

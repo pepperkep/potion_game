@@ -68,3 +68,6 @@ MonoBehaviour:
     prefab: {fileID: 7906562595524549853, guid: 9d2151a8b8ab95e7891ae306bb3d03f6,
       type: 3}
     size: 30
+  - name: Flanker
+    prefab: {fileID: 184990993701227984, guid: c798cb6d93af3e90aa84b4cf8d6e9908, type: 3}
+    size: 30

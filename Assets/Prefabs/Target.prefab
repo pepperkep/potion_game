@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 20
-  currentHealth: 0
   returnPoolName: 
 --- !u!61 &-6370595418482579714
 BoxCollider2D:

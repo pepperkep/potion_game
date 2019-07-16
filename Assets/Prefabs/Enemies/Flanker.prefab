@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3994595398345520240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184990993701227984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effd28f316c41c881be9db0db82dd7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3.5
+  maximumSlow: 0.94
+  target: {fileID: 0}
+  turnTowardsTargetRange: 5.5
+  turnSpeed: 0.002
+--- !u!1001 &5708391882125334876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_Name
+      value: Flanker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174196973197889937, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681090097102103524, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.63972044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681090097102103524, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681090097102103524, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681280363691876899, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: startHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681280363691876899, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: returnPoolName
+      value: Flanker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645611499279024466, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: returnPoolName
+      value: Flanker
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1895243657339185939, guid: 12d25f13d6bfb4da9a067434d58deef5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 12d25f13d6bfb4da9a067434d58deef5, type: 3}
+--- !u!1 &184990993701227984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5708391882125334876}
+  m_PrefabAsset: {fileID: 0}

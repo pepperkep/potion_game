@@ -24,6 +24,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float burstInterval;
     [SerializeField] private bool continueSpawning = true;
     [SerializeField] private GameObject enemyTarget;
+    private Quaternion defualtRotation;
 
     public float BaseSpawnRate
     {
@@ -80,13 +81,17 @@ public class EnemyGenerator : MonoBehaviour
         get => enemyTarget;
         set => enemyTarget = value;
     }
+    public Quaternion DefualtRotation
+    {
+        get => defualtRotation;
+        set => defualtRotation = value;
+    }
     
     private List<EnemyTypeGenerator> currentEnemyTypes;
     private float currentSpawnRate;
     private float timeSinceSpawn = 0;
     private float timeSinceRateChange = 0;
     private float currentBurstAmount;
-    private float timeSinceBurst = 0;
     private int waveNumber = 0;
     private float probabilitySum = 0;
 
@@ -97,6 +102,8 @@ public class EnemyGenerator : MonoBehaviour
         currentSpawnRate = BaseSpawnRate;
         currentBurstAmount = BurstNumber;
         AddNewEnemies();
+        StartCoroutine("CreateBursts");
+        defualtRotation = Quaternion.AngleAxis(180, Vector3.forward);
     }
 
     // Update is called once per frame
@@ -105,7 +112,6 @@ public class EnemyGenerator : MonoBehaviour
         if(ContinueSpawning){
             timeSinceSpawn += Time.deltaTime;
             timeSinceRateChange += Time.deltaTime;
-            timeSinceBurst += Time.deltaTime;
             if(timeSinceSpawn > currentSpawnRate)
             {
                 SpawnEnemy(currentEnemyTypes[ChooseRandomEnemy()].EnemyPoolName, Random.Range(MinEnemyHeight, MaxEnemyHeight));
@@ -116,12 +122,6 @@ public class EnemyGenerator : MonoBehaviour
                 currentSpawnRate *= SpawnRateMultiplier;
                 timeSinceRateChange = 0;
             }
-            if(timeSinceBurst > BurstTime)
-            {
-                timeSinceBurst = 0;
-                StartCoroutine("EnemyBurst", currentBurstAmount);
-                currentBurstAmount *= BurstMultiplier;
-            }
         }
     }
 
@@ -129,8 +129,18 @@ public class EnemyGenerator : MonoBehaviour
     {
         if(EnemyTarget != null)
         {
-            GameObject newEnemy = ObjectPool.Instance.SpawnObject(typeName, new Vector3(transform.position.x, height, transform.position.z), Quaternion.identity);
-            newEnemy.GetComponent<EnemyMovement>().Target = EnemyTarget.transform;
+            GameObject newEnemy = ObjectPool.Instance.SpawnObject(typeName, new Vector3(transform.position.x, height, transform.position.z), DefualtRotation);
+            newEnemy.GetComponent<Movement>().Target = EnemyTarget.transform;
+        }
+    }
+
+    public IEnumerator CreateBursts()
+    {
+        while(ContinueSpawning)
+        {
+            yield return new WaitForSeconds(BurstTime);
+            StartCoroutine("EnemyBurst", currentBurstAmount);
+            currentBurstAmount *= BurstMultiplier;
         }
     }
 
@@ -142,7 +152,6 @@ public class EnemyGenerator : MonoBehaviour
             SpawnEnemy(currentEnemyTypes[ChooseRandomEnemy()].EnemyPoolName, Random.Range(MinEnemyHeight, MaxEnemyHeight));
             yield return new WaitForSeconds(BurstInterval);
         }
-        waveNumber++;
     }
 
     public int ChooseRandomEnemy()
@@ -173,5 +182,6 @@ public class EnemyGenerator : MonoBehaviour
             }
         }
         currentEnemyTypes.Sort((enemy1, enemy2) => enemy2.Probability.CompareTo(enemy1.Probability));
+        waveNumber++;
     }
 }

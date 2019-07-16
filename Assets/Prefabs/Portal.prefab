@@ -98,15 +98,18 @@ MonoBehaviour:
     FirstWaveNumber: 0
   - EnemyPoolName: BigEnemy
     Probability: 2
+    FirstWaveNumber: 5
+  - EnemyPoolName: Flanker
+    Probability: 5
     FirstWaveNumber: 3
   baseSpawnRate: 8
-  spawnRateMultiplier: 0.8
-  spawnRateMultipyTime: 20
+  spawnRateMultiplier: 0.9
+  spawnRateMultipyTime: 24
   minEnemyHeight: -3
   maxEnemyHeight: 5
   burstNumber: 3
-  burstMultiplier: 1.2
-  burstTime: 18
+  burstMultiplier: 1.4
+  burstTime: 24
   burstInterval: 0.15
   continueSpawning: 1
   enemyTarget: {fileID: 383386730868120914, guid: c1f1dfbd089595837a0d623d89360bea,

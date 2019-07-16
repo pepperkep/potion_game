@@ -229,11 +229,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target
       objectReference: {fileID: 0}
-    - target: {fileID: -1794765405303543116, guid: c1f1dfbd089595837a0d623d89360bea,
-        type: 3}
-      propertyPath: poolName
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 383386730868120912, guid: c1f1dfbd089595837a0d623d89360bea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 383386730868120912, guid: c1f1dfbd089595837a0d623d89360bea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 383386730868120912, guid: c1f1dfbd089595837a0d623d89360bea,
         type: 3}

@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 10
-  currentHealth: 0
   returnPoolName: BasicEnemy
 --- !u!114 &1895243657339185939
 MonoBehaviour:
@@ -158,8 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f3557a7db44f9c2858593e0459ef01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 2
+  maximumSlow: 0.95
+  target: {fileID: 0}
 --- !u!114 &3645611499279024466
 MonoBehaviour:
   m_ObjectHideFlags: 0

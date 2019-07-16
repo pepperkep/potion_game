@@ -39,7 +39,7 @@ public class Damager : MonoBehaviour
             col.gameObject.GetComponent<Damageable>().CurrentHealth -= damage;
             if(col.gameObject.CompareTag("Enemy") && DamageEnemies && debuffPoolName != "")
             {
-                ObjectPool.Instance.SpawnObject(debuffPoolName, transform.position, transform.rotation, col.transform).GetComponent<TempEffect>();
+                ObjectPool.Instance.SpawnObject(debuffPoolName, transform.position, transform.rotation, col.transform);
             }
             if(DestroyOnDamage)
             {
