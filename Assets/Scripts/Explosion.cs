@@ -19,6 +19,11 @@ public class Explosion : MonoBehaviour
         get => stuns;
         set => stuns = value;
     }
+    public string ExplosionPoolName
+    {
+        get => explosionPoolName;
+        set => explosionPoolName = value;
+    }
 
     //Time explosion has been on screen
     private float timeSpent = 0;

@@ -125,11 +125,10 @@ public class Potion : MonoBehaviour
     //Explode on contact with another expolsion
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Explosion")
+        if(col.gameObject.CompareTag("Explosion"))
         {
             StartCoroutine("ExplodeAfterTime", FuseTime);
         }
-
     }
 
     public IEnumerator ExplodeAfterTime(float timeToExplode)
