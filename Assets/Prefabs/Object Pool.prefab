@@ -51,7 +51,7 @@ MonoBehaviour:
   - name: BasicEnemy
     prefab: {fileID: 5596127672799892620, guid: 12d25f13d6bfb4da9a067434d58deef5,
       type: 3}
-    size: 30
+    size: 50
   - name: ElectricExplosion
     prefab: {fileID: 5538610360540141496, guid: 40ae55da623ac030cbe83a1e3c8ea504,
       type: 3}
@@ -70,4 +70,4 @@ MonoBehaviour:
     size: 30
   - name: Flanker
     prefab: {fileID: 184990993701227984, guid: c798cb6d93af3e90aa84b4cf8d6e9908, type: 3}
-    size: 30
+    size: 40

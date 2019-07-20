@@ -24,18 +24,26 @@ public class CurveMovement : Movement
         enemybody = gameObject.GetComponent<Rigidbody2D>();
     }
 
+    void OnEnable()
+    {
+        isTurning = false;
+    }
+
     public override void DetermineMove()
     {
-        if(!isTurning && ((Target.position - transform.position).sqrMagnitude <= turnTowardsTargetRange * turnTowardsTargetRange))
+        if(Target != null)
         {
-            isTurning = true;
-        }
-        if(isTurning && Target != null)
-        {
-            Vector3 dir = Target.position - transform.position;
-            float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), rotatePoint);
-            rotatePoint += turnSpeed;
+            if(!isTurning && ((Target.position - transform.position).sqrMagnitude <= turnTowardsTargetRange * turnTowardsTargetRange))
+            {
+                isTurning = true;
+            }
+            if(isTurning)
+            {
+                Vector3 dir = Target.position - transform.position;
+                float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), rotatePoint);
+                rotatePoint += turnSpeed;
+            }
         }
         if(SpeedReductionSum < MaximumSlow)
         {

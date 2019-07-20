@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5596127672799892620
+--- !u!1 &7732730748874469595
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3174196973197889937}
-  - component: {fileID: 6681090097102103524}
-  - component: {fileID: 5922605204593777477}
-  - component: {fileID: 3426459933519177009}
-  - component: {fileID: 8681280363691876899}
-  - component: {fileID: 1895243657339185939}
-  - component: {fileID: 3645611499279024466}
+  - component: {fileID: 7732730748874469599}
+  - component: {fileID: 7732730748874469598}
+  - component: {fileID: 7732730748874469593}
+  - component: {fileID: 7732730748874469592}
+  - component: {fileID: 7732730748874469596}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: Duplicator
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3174196973197889937
+--- !u!4 &7732730748874469599
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
+  m_GameObject: {fileID: 7732730748874469595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0399225, y: -0.18270034, z: -0.107421875}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0.5, y: 0.25, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6681090097102103524
+--- !u!212 &7732730748874469598
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
+  m_GameObject: {fileID: 7732730748874469595}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: db5129916853308828bd6327929dee53, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.10522747, a: 1}
+  m_Color: {r: 0.4442862, g: 0.6906085, b: 0.735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,13 +82,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5922605204593777477
+--- !u!61 &7732730748874469593
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
+  m_GameObject: {fileID: 7732730748874469595}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -110,14 +108,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &3426459933519177009
+--- !u!50 &7732730748874469592
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
+  m_GameObject: {fileID: 7732730748874469595}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
@@ -131,51 +129,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8681280363691876899
+--- !u!114 &7732730748874469596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
+  m_GameObject: {fileID: 7732730748874469595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c85d95391f282454a4575c0a6289906, type: 3}
+  m_Script: {fileID: 11500000, guid: cbdbea1a6e6415fb2ad86f99302c6264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 10
-  currencyOnDeath: 10
-  returnPoolName: BasicEnemy
---- !u!114 &1895243657339185939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f3557a7db44f9c2858593e0459ef01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  maximumSlow: 0.95
-  target: {fileID: 0}
---- !u!114 &3645611499279024466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596127672799892620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401172f1a4344bcc881c69f71b5f058a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  damagePlayer: 1
-  damageEnemies: 0
-  destroyOnDamage: 1
-  returnPoolName: BasicEnemy
-  debuffPoolName: 
+  dragCamera: {fileID: 0}

@@ -8,6 +8,9 @@ public class GameStatusManager : MonoBehaviour
     [SerializeField] private GameObject enemyGoalTarget;
     [SerializeField] private EnemyGenerator enemySpawner;
     private bool gameOver = false;
+    private int parts = 0;
+
+    public static GameStatusManager Instance;
 
     public GameObject EnemyGoalTarget
     {
@@ -19,11 +22,16 @@ public class GameStatusManager : MonoBehaviour
         get => enemySpawner;
         set => enemySpawner = value;
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public int Parts
     {
-        
+        get => parts;
+        set => parts = value;
+    }
+
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -41,9 +49,10 @@ public class GameStatusManager : MonoBehaviour
 
     void OnGUI()
     {
+        GUI.Label(new Rect(0, 0, 100, 30), "Parts: " + Parts, "Box");
         if(gameOver)
         {
-            GUI.Box(new Rect(0, 0, 200, 50), "Game Over!");
+            GUI.Box(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 50, 200, 50), "Game Over!");
         }
     }
 }

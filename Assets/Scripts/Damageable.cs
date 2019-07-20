@@ -5,6 +5,7 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] private int startHealth = 20;
+    [SerializeField] private int currencyOnDeath = 0;
     private float currentHealth = 0;
     [Tooltip("Pool object will return to. Object will be destroyed if pool name is an empty string.")]
     [SerializeField] private string returnPoolName = null;
@@ -19,6 +20,12 @@ public class Damageable : MonoBehaviour
         get => currentHealth;
         set => currentHealth = value;
     }
+    public int CurrencyOnDeath
+    {
+        get => currencyOnDeath;
+        set => currencyOnDeath = value;
+    }
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -31,6 +38,7 @@ public class Damageable : MonoBehaviour
         if(currentHealth <= 0)
         {
             Kill();
+            GameStatusManager.Instance.Parts += CurrencyOnDeath;
         }
     }
 

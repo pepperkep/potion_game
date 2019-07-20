@@ -10,7 +10,7 @@ public class DragDrop : MonoBehaviour
     // Offset between the mouse position and the object position
     private Vector3 offset = Vector3.zero;
     // Camera mouse coordinates are in reference to
-    [SerializeField] private Camera dragCamera;
+    public Camera dragCamera;
     private Rigidbody2D dragBody;
 
     public Camera DragCamera
@@ -23,6 +23,14 @@ public class DragDrop : MonoBehaviour
     void Start()
     {
         dragBody = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        if(isDragged && Input.GetKeyUp("mouse 0"))
+        {
+            EndDrag();
+        }
     }
 
     // Update is called once per frame
@@ -39,18 +47,22 @@ public class DragDrop : MonoBehaviour
     // Set values when player drags offset
     void OnMouseDown()
     {
+        StartDragging();
+    }
+
+    public bool GetIsDragging(){
+        return this.isDragged;
+    }
+
+    public void StartDragging()
+    {
         isDragged = true;
         Vector3 worldMousePosition = dragCamera.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - worldMousePosition;
     }
 
-    // Release object when player lets up mouse
-    void OnMouseUp()
+    public void EndDrag()
     {
         isDragged = false;
-    }
-
-    public bool GetIsDragging(){
-        return this.isDragged;
     }
 }

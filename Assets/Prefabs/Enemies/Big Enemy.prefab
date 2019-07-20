@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: startHealth
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 8681280363691876899, guid: 12d25f13d6bfb4da9a067434d58deef5,
+        type: 3}
+      propertyPath: currencyOnDeath
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1895243657339185939, guid: 12d25f13d6bfb4da9a067434d58deef5,
         type: 3}
       propertyPath: speed

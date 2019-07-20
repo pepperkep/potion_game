@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2852244298480381260}
   - component: {fileID: 1332483250410840534}
+  - component: {fileID: 7835434116430278133}
   m_Layer: 0
   m_Name: Game Status Manager
   m_TagString: Untagged
@@ -43,7 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a05bd6d31856192b456b408a625adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGoalTarget: {fileID: 383386730868120914, guid: c1f1dfbd089595837a0d623d89360bea,
-    type: 3}
-  enemySpawner: {fileID: 7370114549663667977, guid: 8cc9940d5f8ccdf94b68a4b2f328f05a,
-    type: 3}
+  enemyGoalTarget: {fileID: 0}
+  enemySpawner: {fileID: 0}
+--- !u!114 &7835434116430278133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579962733522994739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a559039061b5684938c1c32c280a6259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purchasableItems: []
+  basePurchasableUI: {fileID: 0}
