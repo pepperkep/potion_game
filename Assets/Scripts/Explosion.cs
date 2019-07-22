@@ -8,6 +8,10 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float duration = 50f;
     [SerializeField] private string explosionPoolName = "";
     [SerializeField] private bool stuns = false;
+    [Tooltip("Extra blue for a duplicate explosion")]
+    [SerializeField] private float duplicateBlueAmount = 20f;
+    private bool duplicate = false;
+    private SpriteRenderer renderComponenet;
 
     public float Duration
     {
@@ -24,9 +28,32 @@ public class Explosion : MonoBehaviour
         get => explosionPoolName;
         set => explosionPoolName = value;
     }
+    public bool Duplicate
+    {
+        get => duplicate;
+        set
+        {
+            duplicate = value;
+            Color tempColor = renderComponenet.color;
+            if(duplicate)
+            {
+                tempColor.b += duplicateBlueAmount;
+            }
+            else
+            {
+                tempColor.b -= duplicateBlueAmount;
+            }
+            renderComponenet.color = tempColor;
+        }
+    }
 
     //Time explosion has been on screen
     private float timeSpent = 0;
+
+    void Awake()
+    {
+        renderComponenet = gameObject.GetComponent<SpriteRenderer>();
+    }
 
     void OnEnable()
     {
@@ -39,6 +66,7 @@ public class Explosion : MonoBehaviour
         timeSpent += Time.deltaTime;
         if(timeSpent > Duration)
         {
+            Duplicate = false;
             ObjectPool.Instance.AddToPool(explosionPoolName, this.gameObject);
         }
     }

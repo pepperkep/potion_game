@@ -156,3 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDuplicate: 2
+  additionalZPosition: 1
+  waitBeforeNextDuplicate: 0.05
