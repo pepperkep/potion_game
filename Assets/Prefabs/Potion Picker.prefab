@@ -95,9 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToGenerate: 4
   maxPotionCount: 6
-  potionPrefabs:
-  - {fileID: 8312631750748496273, guid: 32118094695afaebdba5e22512d73842, type: 3}
-  - {fileID: 6007222613536842529, guid: 60758d2225f57bb52b96ef6513cff2a0, type: 3}
+  potionGenerationData:
+  - PotionPrefab: {fileID: 8312631750748496273, guid: 32118094695afaebdba5e22512d73842,
+      type: 3}
+    Probability: 15
+  - PotionPrefab: {fileID: 6007222613536842529, guid: 60758d2225f57bb52b96ef6513cff2a0,
+      type: 3}
+    Probability: 5
 --- !u!1 &8527726907555709995
 GameObject:
   m_ObjectHideFlags: 0

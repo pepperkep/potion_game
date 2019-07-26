@@ -44,12 +44,15 @@ public class Damageable : MonoBehaviour
 
     public void Kill()
     {
-        for(int i = 0; i < transform.childCount; i++)
+        int numberOfChildren = transform.childCount;
+        int childNumber = 0;
+        for(int i = 0; i < numberOfChildren; i++, childNumber++)
         {
-            TempEffect childEffect;
-            if((childEffect = transform.GetChild(i).GetComponent<TempEffect>()) != null)
+            TempEffect childEffect = transform.GetChild(childNumber).GetComponent<TempEffect>();
+            if(childEffect != null)
             {
                 childEffect.KillEffect();
+                childNumber--;
             }
         }
         if(returnPoolName != "")

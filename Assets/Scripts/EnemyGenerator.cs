@@ -10,14 +10,14 @@ public class EnemyGenerator : MonoBehaviour
         public string EnemyPoolName;
         public float Probability;
         public int FirstWaveNumber;
+        public float MinSpawnHeight;
+        public float MaxSpawnHeight;
     }
 
     [SerializeField] private List<EnemyTypeGenerator> enemyGenerationData;
     [SerializeField] private float baseSpawnRate;
     [SerializeField] private float spawnRateMultiplier;
     [SerializeField] private float spawnRateMultipyTime;
-    [SerializeField] private float minEnemyHeight;
-    [SerializeField] private float maxEnemyHeight;
     [SerializeField] private int burstNumber;
     [SerializeField] private float burstMultiplier;
     [SerializeField] private float burstTime;
@@ -40,16 +40,6 @@ public class EnemyGenerator : MonoBehaviour
     {
         get => spawnRateMultipyTime;
         set => spawnRateMultipyTime = value;
-    }
-    public float MinEnemyHeight
-    {
-        get => minEnemyHeight;
-        set => minEnemyHeight = value;
-    }
-    public float MaxEnemyHeight
-    {
-        get => maxEnemyHeight;
-        set => maxEnemyHeight = value;
     }
     public int BurstNumber
     {
@@ -114,7 +104,8 @@ public class EnemyGenerator : MonoBehaviour
             timeSinceRateChange += Time.deltaTime;
             if(timeSinceSpawn > currentSpawnRate)
             {
-                SpawnEnemy(currentEnemyTypes[ChooseRandomEnemy()].EnemyPoolName, Random.Range(MinEnemyHeight, MaxEnemyHeight));
+                EnemyTypeGenerator nextType = currentEnemyTypes[ChooseRandomEnemy()];
+                SpawnEnemy(nextType.EnemyPoolName, Random.Range(nextType.MinSpawnHeight, nextType.MaxSpawnHeight));
                 timeSinceSpawn = 0;
             }
             if(timeSinceRateChange > SpawnRateMultipyTime)
@@ -140,6 +131,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(BurstTime);
             StartCoroutine("EnemyBurst", currentBurstAmount);
+            yield return new WaitForSeconds(currentBurstAmount * BurstInterval);
             currentBurstAmount *= BurstMultiplier;
         }
     }
@@ -149,7 +141,8 @@ public class EnemyGenerator : MonoBehaviour
         AddNewEnemies();
         for(int i = 0; i < enemyNumber; i++)
         {
-            SpawnEnemy(currentEnemyTypes[ChooseRandomEnemy()].EnemyPoolName, Random.Range(MinEnemyHeight, MaxEnemyHeight));
+            EnemyTypeGenerator nextType = currentEnemyTypes[ChooseRandomEnemy()];
+            SpawnEnemy(nextType.EnemyPoolName, Random.Range(nextType.MinSpawnHeight, nextType.MaxSpawnHeight));
             yield return new WaitForSeconds(BurstInterval);
         }
     }

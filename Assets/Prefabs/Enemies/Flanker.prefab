@@ -16,7 +16,7 @@ MonoBehaviour:
   maximumSlow: 0.94
   target: {fileID: 0}
   turnTowardsTargetRange: 5.5
-  turnSpeed: 0.002
+  turnSpeed: 0.0025
 --- !u!1001 &5708391882125334876
 PrefabInstance:
   m_ObjectHideFlags: 0

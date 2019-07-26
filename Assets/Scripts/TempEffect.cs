@@ -22,6 +22,7 @@ public abstract class TempEffect : MonoBehaviour
 
     public void KillEffect()
     {
+        EndEffect();
         ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
     }
 

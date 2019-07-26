@@ -9,6 +9,7 @@ public class GameStatusManager : MonoBehaviour
     [SerializeField] private EnemyGenerator enemySpawner;
     private bool gameOver = false;
     private int parts = 0;
+    private Damageable playerHealth;
 
     public static GameStatusManager Instance;
 
@@ -34,6 +35,11 @@ public class GameStatusManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        playerHealth = enemyGoalTarget.GetComponent<Damageable>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -50,6 +56,7 @@ public class GameStatusManager : MonoBehaviour
     void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 100, 30), "Parts: " + Parts, "Box");
+        GUI.Label(new Rect(0, 31, 100, 30), "Health: " + playerHealth.CurrentHealth, "Box");
         if(gameOver)
         {
             GUI.Box(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 50, 200, 50), "Game Over!");

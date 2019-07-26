@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tickCount: 1
-  tickTime: 4
+  tickTime: 3
   returnPoolName: StunEffect
   targetComponent: {fileID: 0}

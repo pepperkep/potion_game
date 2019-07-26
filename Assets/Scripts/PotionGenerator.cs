@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PotionGenerator : MonoBehaviour
 {
+    [System.Serializable]
+    public struct PotionTypeGenerator
+    {
+        public GameObject PotionPrefab;
+        public float Probability;
+    }
 
     [Tooltip("Time between potion generation attempts. One area must be clear of draggable objects.")]
     [SerializeField] private float timeToGenerate;
     [Tooltip("Number of possible potion spawn points. Higher potion counts decreases spawn area size.")]
     [SerializeField] private int maxPotionCount;
     [Tooltip("List of potions that can be spawned. Potions all have an equal chance of being spanwed.")]
-    [SerializeField] private List<GameObject> potionPrefabs;
+    [SerializeField] private List<PotionTypeGenerator> potionGenerationData;
     private Camera potionCamera;
+    private float probabilitySum = 0;
 
 
     //Properties corresponding to serialized fields
@@ -25,10 +32,10 @@ public class PotionGenerator : MonoBehaviour
         get => maxPotionCount;
         set => maxPotionCount = value;
     }
-    public List<GameObject> PotionPrefabs
+    public List<PotionTypeGenerator> PotionGenerationData
     {
-        get => potionPrefabs;
-        set => potionPrefabs = value;
+        get => potionGenerationData;
+        set => potionGenerationData = value;
     }
 
     private float timeSincePotion = 0f;
@@ -40,6 +47,10 @@ public class PotionGenerator : MonoBehaviour
         Vector3 spriteSize = gameObject.GetComponent<SpriteRenderer>().bounds.size;
         generatorSize = spriteSize;
         potionCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        for(int i = 0; i < PotionGenerationData.Count; i++)
+        {
+            probabilitySum += PotionGenerationData[i].Probability;
+        }
     }
 
     // Update is called once per frame
@@ -70,10 +81,27 @@ public class PotionGenerator : MonoBehaviour
         }
     }
 
+    public int ChooseRandomPotion()
+    {
+        float randomNumber = Random.value * probabilitySum;
+        for(int i = 0; i < PotionGenerationData.Count; i++)
+        {
+            if(randomNumber < PotionGenerationData[i].Probability)
+            {
+                return i;
+            }
+            else
+            {
+                randomNumber -= PotionGenerationData[i].Probability;
+            }
+        }
+        return PotionGenerationData.Count - 1;
+    }
+
     //Chose potion randomly from prefab list at potion position
     public void CreatePotion(Vector3 potionPosition)
     {
-        GameObject nextPotion = PotionPrefabs[Random.Range(0, PotionPrefabs.Count)];
+        GameObject nextPotion = PotionGenerationData[ChooseRandomPotion()].PotionPrefab;
         nextPotion = Instantiate(nextPotion, potionPosition, Quaternion.identity);
         nextPotion.GetComponent<DragDrop>().DragCamera = potionCamera;
     }
