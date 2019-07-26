@@ -71,3 +71,11 @@ MonoBehaviour:
   - name: Flanker
     prefab: {fileID: 184990993701227984, guid: c798cb6d93af3e90aa84b4cf8d6e9908, type: 3}
     size: 100
+  - name: PoisonEffect
+    prefab: {fileID: 3737040228697276129, guid: 0ed379c91f4adc289aed3f899c05a398,
+      type: 3}
+    size: 80
+  - name: PoisonBullet
+    prefab: {fileID: 6063103385528678159, guid: c2b5703e196a105c2944b7d3b0120a63,
+      type: 3}
+    size: 100

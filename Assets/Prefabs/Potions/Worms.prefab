@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2362803634176274595, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362803634176274595, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7596553529878079098, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: m_Color.g
@@ -81,6 +91,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745562258163053673, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: bulletSpawnPoolName
+      value: PoisonBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: shotInterval
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}
