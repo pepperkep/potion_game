@@ -82,5 +82,35 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.990566
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.r
+      value: 0.9770718
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: explosionPoolName
+      value: SizeExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: bulletSpawnPoolName
+      value: BigBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: shotInterval
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}

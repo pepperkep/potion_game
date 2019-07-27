@@ -78,4 +78,35 @@ MonoBehaviour:
   - name: PoisonBullet
     prefab: {fileID: 6063103385528678159, guid: c2b5703e196a105c2944b7d3b0120a63,
       type: 3}
-    size: 100
+    size: 80
+  - name: WormExplosion
+    prefab: {fileID: 5554140280221740318, guid: 5435de59eb0c5d0a787a4b424c5e89e5,
+      type: 3}
+    size: 40
+  - name: DeathExplosion
+    prefab: {fileID: 921727215437786037, guid: a4e120476b5a64871ba7a9d5b639bf23, type: 3}
+    size: 40
+  - name: Worms
+    prefab: {fileID: 2988819241102007400, guid: 06c912e598cb5e6eca0477b5b3b2e239,
+      type: 3}
+    size: 80
+  - name: BigBullet
+    prefab: {fileID: 5580155430571298673, guid: 414a6f6cff04bd3a7ae0871b28d7a194,
+      type: 3}
+    size: 60
+  - name: EnlargeEffect
+    prefab: {fileID: 3848574137999189323, guid: 91f495d922844952d905cfbd37b06a13,
+      type: 3}
+    size: 80
+  - name: ShrinkEffect
+    prefab: {fileID: 7233452564570012108, guid: 544ebed1268a771f190f4871fcbd85b6,
+      type: 3}
+    size: 40
+  - name: SizeExplosion
+    prefab: {fileID: 3280113167232234095, guid: 24be62eb5b1278a59bc5d25fc4ed78bd,
+      type: 3}
+    size: 20
+  - name: DurianExplosion
+    prefab: {fileID: 5959867993224822393, guid: 7a4b507edfae978bb801327af228b7ed,
+      type: 3}
+    size: 40

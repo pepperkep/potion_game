@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ElectricEffect : TempEffect
 {
-    private float speed;
-
     public override void FindTarget()
     {
         if(transform.parent != null)

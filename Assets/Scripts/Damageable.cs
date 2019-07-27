@@ -6,9 +6,13 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] private int startHealth = 20;
     [SerializeField] private int currencyOnDeath = 0;
+    [SerializeField] private float damageMultiplier = 1f;
     private float currentHealth = 0;
     [Tooltip("Pool object will return to. Object will be destroyed if pool name is an empty string.")]
     [SerializeField] private string returnPoolName = null;
+    [Tooltip("Percentage size when hit by size explosion")]
+    [SerializeField] private float smallPercentage = 0.2f;
+    private bool deathOnNextHit = false;
 
     public int StartHealth
     {
@@ -18,12 +22,35 @@ public class Damageable : MonoBehaviour
     public float CurrentHealth
     {
         get => currentHealth;
-        set => currentHealth = value;
+        set
+        {
+            float damageDealt = currentHealth - value;
+            currentHealth -= damageDealt * DamageMultiplier;
+            if(DeathOnNextHit)
+            {
+                transform.localScale /= smallPercentage;
+                Kill();
+            }
+        }
     }
     public int CurrencyOnDeath
     {
         get => currencyOnDeath;
         set => currencyOnDeath = value;
+    }
+    public float DamageMultiplier
+    {
+        get => damageMultiplier;
+        set => damageMultiplier = value;
+    }
+    public bool DeathOnNextHit
+    {
+        get => deathOnNextHit;
+        set
+        {
+            deathOnNextHit = value;
+            transform.localScale *= smallPercentage;
+        }
     }
 
     // Start is called before the first frame update
@@ -53,6 +80,15 @@ public class Damageable : MonoBehaviour
             {
                 childEffect.KillEffect();
                 childNumber--;
+            }
+            else
+            {
+                Worm wormOnEnemy = transform.GetChild(childNumber).GetComponent<Worm>();
+                if(wormOnEnemy != null)
+                {
+                    wormOnEnemy.ReleaseExplosion();
+                    childNumber--;
+                }
             }
         }
         if(returnPoolName != "")

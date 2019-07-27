@@ -51,7 +51,7 @@ public class CreateItemMenu : MonoBehaviour
 
     public void BuyItem(int indexItem)
     {
-        if(GameStatusManager.Instance.Parts > purchasableItems[indexItem].PiecePrice)
+        if(GameStatusManager.Instance.Parts >= purchasableItems[indexItem].PiecePrice)
         {
             GameStatusManager.Instance.Parts -= purchasableItems[indexItem].PiecePrice;
             Vector3 mousePoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);

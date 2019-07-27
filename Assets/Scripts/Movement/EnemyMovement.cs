@@ -23,6 +23,10 @@ public class EnemyMovement : Movement
     {
         //Store refrences for componenets
         enemybody = gameObject.GetComponent<Rigidbody2D>();
+        if(enemybody == null)
+        {
+            enemybody = transform.GetChild(0).gameObject.GetComponent<Rigidbody2D>();
+        }
     }
 
     public override void DetermineMove()

@@ -8,6 +8,7 @@ public abstract class TempEffect : MonoBehaviour
     public float tickCount;
     public float tickTime;
     public string returnPoolName = "";
+    public bool effectForever = false;
     [HideInInspector]
     public MonoBehaviour targetComponent;
     private IEnumerator effectRoutine;
@@ -35,14 +36,17 @@ public abstract class TempEffect : MonoBehaviour
             count++;
             yield return new WaitForSeconds(tickTime);
         }
-        EndEffect();
-        if(returnPoolName == "")
+        if(!effectForever)
         {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
+            EndEffect();
+            if(returnPoolName == "")
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
+            }
         }
     }
 

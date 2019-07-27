@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,6 @@ public class Explosion : MonoBehaviour
     [Tooltip("Time explosion radius is active")]
     [SerializeField] private float duration = 50f;
     [SerializeField] private string explosionPoolName = "";
-    [SerializeField] private bool stuns = false;
     [Tooltip("Extra blue for a duplicate explosion")]
     [SerializeField] private float duplicateBlueAmount = 20f;
     private bool duplicate = false;
@@ -17,11 +16,6 @@ public class Explosion : MonoBehaviour
     {
         get => duration;
         set => duration = value;
-    }
-    public bool Stuns
-    {
-        get => stuns;
-        set => stuns = value;
     }
     public string ExplosionPoolName
     {
@@ -34,16 +28,19 @@ public class Explosion : MonoBehaviour
         set
         {
             duplicate = value;
-            Color tempColor = renderComponenet.color;
-            if(duplicate)
+            if(renderComponenet != null)
             {
-                tempColor.b += duplicateBlueAmount;
+                Color tempColor = renderComponenet.color;
+                if(duplicate)
+                {
+                    tempColor.b += duplicateBlueAmount;
+                }
+                else
+                {
+                    tempColor.b -= duplicateBlueAmount;
+                }
+                renderComponenet.color = tempColor;
             }
-            else
-            {
-                tempColor.b -= duplicateBlueAmount;
-            }
-            renderComponenet.color = tempColor;
         }
     }
 
