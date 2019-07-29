@@ -110,3 +110,10 @@ MonoBehaviour:
     prefab: {fileID: 5959867993224822393, guid: 7a4b507edfae978bb801327af228b7ed,
       type: 3}
     size: 40
+  - name: BlackHole
+    prefab: {fileID: 317778420994696588, guid: 0cbbce0e2f1bdda17b3cef0749904f4c, type: 3}
+    size: 30
+  - name: BlackHoleStun
+    prefab: {fileID: 1624026792105352956, guid: 9bce88c627be53a87adc370651e77447,
+      type: 3}
+    size: 30

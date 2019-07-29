@@ -145,7 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 10
   currencyOnDeath: 10
+  damageMultiplier: 1
   returnPoolName: BasicEnemy
+  smallPercentage: 0.2
 --- !u!114 &1895243657339185939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   maximumSlow: 0.95
-  target: {fileID: 0}
+  turnSpeed: 0.005
+  turnInterval: 0.01
+  alwaysFaceTarget: 0
 --- !u!114 &3645611499279024466
 MonoBehaviour:
   m_ObjectHideFlags: 0

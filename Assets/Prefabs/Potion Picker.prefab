@@ -111,6 +111,9 @@ MonoBehaviour:
   - PotionPrefab: {fileID: 5411468620984314997, guid: de57ce8e024dc774298523cc497ac143,
       type: 3}
     Probability: 15
+  - PotionPrefab: {fileID: 3643541969858827102, guid: 4243cc2a2c4a8bc19a0326048e7ebc04,
+      type: 3}
+    Probability: 5
 --- !u!1 &8527726907555709995
 GameObject:
   m_ObjectHideFlags: 0

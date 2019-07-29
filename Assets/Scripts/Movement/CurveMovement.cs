@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CurveMovement : Movement
 {
-    [SerializeField] private Transform target;
     [SerializeField] private float turnTowardsTargetRange = 4f;
-    [SerializeField] private float turnSpeed = 0.1f;
+    
     private bool isTurning = false;
-    private float rotatePoint = 0;
+    private Transform target;
     
     public override Transform Target
     {
@@ -36,13 +35,7 @@ public class CurveMovement : Movement
             if(!isTurning && ((Target.position - transform.position).sqrMagnitude <= turnTowardsTargetRange * turnTowardsTargetRange))
             {
                 isTurning = true;
-            }
-            if(isTurning)
-            {
-                Vector3 dir = Target.position - transform.position;
-                float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), rotatePoint);
-                rotatePoint += turnSpeed;
+                TurnRoutine = TurnTowards(Target);
             }
         }
         if(SpeedReductionSum < MaximumSlow)

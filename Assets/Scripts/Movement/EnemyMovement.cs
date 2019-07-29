@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : Movement
 {
-    [SerializeField] private Transform target;
     [SerializeField] private bool alwaysFaceTarget = false;
+    private Transform target;
     
     public override Transform Target
     {
@@ -47,7 +47,7 @@ public class EnemyMovement : Movement
 
     public void FaceTarget()
     {
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = Target.position - transform.position;
         float angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
