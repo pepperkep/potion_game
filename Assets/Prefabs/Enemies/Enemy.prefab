@@ -164,6 +164,8 @@ MonoBehaviour:
   maximumSlow: 0.95
   turnSpeed: 0.005
   turnInterval: 0.01
+  minStopTurn: 0.001
+  rotatePerAlchol: 0.5
   alwaysFaceTarget: 0
 --- !u!114 &3645611499279024466
 MonoBehaviour:

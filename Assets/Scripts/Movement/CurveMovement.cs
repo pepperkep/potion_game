@@ -35,7 +35,7 @@ public class CurveMovement : Movement
             if(!isTurning && ((Target.position - transform.position).sqrMagnitude <= turnTowardsTargetRange * turnTowardsTargetRange))
             {
                 isTurning = true;
-                TurnRoutine = TurnTowards(Target);
+                TurnRoutine = TurnTowards(Target.position);
             }
         }
         if(SpeedReductionSum < MaximumSlow)

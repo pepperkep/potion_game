@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   maximumSlow: 0.94
-  target: {fileID: 0}
-  turnTowardsTargetRange: 5.5
   turnSpeed: 0.0025
+  turnInterval: 0.01
+  minStopTurn: 0.001
+  rotatePerAlchol: 0.5
+  turnTowardsTargetRange: 5.5
 --- !u!1001 &5708391882125334876
 PrefabInstance:
   m_ObjectHideFlags: 0

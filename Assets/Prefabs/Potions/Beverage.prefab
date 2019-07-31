@@ -82,5 +82,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.6415094
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.g
+      value: 0.92913026
+      objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: changeColor.b
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: bulletSpawnPoolName
+      value: BeverageBullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}

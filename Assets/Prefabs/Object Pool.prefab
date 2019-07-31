@@ -117,3 +117,15 @@ MonoBehaviour:
     prefab: {fileID: 1624026792105352956, guid: 9bce88c627be53a87adc370651e77447,
       type: 3}
     size: 30
+  - name: DrunkEffect
+    prefab: {fileID: 5497620648996647613, guid: d3646e5e413214ab08d5c5588888f711,
+      type: 3}
+    size: 30
+  - name: BeverageBullet
+    prefab: {fileID: 6494992486767188421, guid: 886eb9f8138d3590b8ddccfdb4d9d02c,
+      type: 3}
+    size: 60
+  - name: AlcoholExplosion
+    prefab: {fileID: 1624026792105352956, guid: 9bce88c627be53a87adc370651e77447,
+      type: 3}
+    size: 30

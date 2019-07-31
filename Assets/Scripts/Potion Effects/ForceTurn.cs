@@ -21,11 +21,14 @@ public class ForceTurn : MonoBehaviour
         if(col.gameObject.CompareTag("Enemy"))
         {
             Movement enemyMovement = col.gameObject.GetComponent<Movement>();
-            enemyMovement.TurnRoutine = enemyMovement.TurnTowards(enemyMovement.Target);
+            if(enemyMovement.Target.position != null)
+            {
+                enemyMovement.TurnRoutine = enemyMovement.TurnTowards(enemyMovement.Target.position);
+            }
         }
     }
 
-    public Transform FindClosestTurnPoint(Vector3 enemyPosition)
+    public Vector3 FindClosestTurnPoint(Vector3 enemyPosition)
     {
         float lowestDistanceSquared = float.PositiveInfinity;
         Transform closestTransform = null;
@@ -37,6 +40,6 @@ public class ForceTurn : MonoBehaviour
                 closestTransform = turnTowardsPoints[i];
             }
         }
-        return closestTransform;
+        return closestTransform.position;
     }
 }
