@@ -17,7 +17,7 @@ public class DuplicateExplosion : MonoBehaviour
         {
             if(!isDuplicating){
                 Explosion explosionToDuplicate = col.gameObject.GetComponent<Explosion>();
-                if(!explosionToDuplicate.Duplicate)
+                if(explosionToDuplicate != null && !explosionToDuplicate.Duplicate)
                 {
                     duplicateRoutine = DuplicateInTime(explosionToDuplicate);
                     StartCoroutine(duplicateRoutine);

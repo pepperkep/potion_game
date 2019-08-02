@@ -10,7 +10,8 @@ public class Flamable : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Explosion"))
         {
-            if(col.gameObject.GetComponent<Explosion>().StartsFires)
+            Explosion flameStart = col.gameObject.GetComponent<Explosion>();
+            if(flameStart != null && flameStart.StartsFires)
             {
                 flameObject.SetActive(true);
             }

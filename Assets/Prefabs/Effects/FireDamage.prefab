@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickCount: 10
   tickTime: 0.5
-  returnPoolName: "FireDamage\x13"
+  returnPoolName: FireDamage
   effectForever: 0
   targetComponent: {fileID: 0}
   damagePerTick: 1
