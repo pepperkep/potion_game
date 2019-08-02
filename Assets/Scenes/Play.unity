@@ -922,5 +922,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9134860417060343301, guid: b642b5745a74cd2eeaeca93c87d86a4b,
+        type: 3}
+      propertyPath: purchasableItems.Array.data[0].WaveToBuy
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b642b5745a74cd2eeaeca93c87d86a4b, type: 3}

@@ -77,7 +77,7 @@ MonoBehaviour:
   purchasableItems:
   - ItemToPurchasable: {fileID: 7732730748874469595, guid: 607f896c0b8529519bc3e7a40fdc0179,
       type: 3}
-    Name: Funny Name
+    Name: Duplicator
     PiecePrice: 200
     WaveToBuy: 3
   basePurchasableUI: {fileID: 1579031107592271619, guid: 709eed3686d4965c39b8170cfaf6be7b,

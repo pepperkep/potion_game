@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private string explosionPoolName = "";
     [Tooltip("Extra blue for a duplicate explosion")]
     [SerializeField] private float duplicateBlueAmount = 20f;
+    [SerializeField] private bool startsFires = false;
     private bool duplicate = false;
     private SpriteRenderer renderComponenet;
 
@@ -42,6 +43,11 @@ public class Explosion : MonoBehaviour
                 renderComponenet.color = tempColor;
             }
         }
+    }
+    public bool StartsFires
+    {
+        get => startsFires;
+        set => startsFires = value;
     }
 
     //Time explosion has been on screen

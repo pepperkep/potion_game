@@ -112,8 +112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.5
   explosionPoolName: BasicExplosion
-  stuns: 0
   duplicateBlueAmount: 0.2
+  startsFires: 1
 --- !u!114 &7123109323900946957
 MonoBehaviour:
   m_ObjectHideFlags: 0

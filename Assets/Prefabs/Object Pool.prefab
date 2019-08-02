@@ -125,7 +125,14 @@ MonoBehaviour:
     prefab: {fileID: 6494992486767188421, guid: 886eb9f8138d3590b8ddccfdb4d9d02c,
       type: 3}
     size: 60
-  - name: AlcoholExplosion
-    prefab: {fileID: 1624026792105352956, guid: 9bce88c627be53a87adc370651e77447,
+  - name: BottleBreak
+    prefab: {fileID: 6337366685967758224, guid: 921e63b8e1a0136eba34b5bea0b36542,
       type: 3}
     size: 30
+  - name: SpillExplosion
+    prefab: {fileID: 167091482998044280, guid: 5f1f8aecd2251e77fa1d0b3529376083, type: 3}
+    size: 30
+  - name: FireDamage
+    prefab: {fileID: 8768856215250824324, guid: 569221746ad544f7294d5724af8b6604,
+      type: 3}
+    size: 90
