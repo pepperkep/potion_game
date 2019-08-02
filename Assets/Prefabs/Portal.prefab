@@ -118,3 +118,5 @@ MonoBehaviour:
   continueSpawning: 1
   enemyTarget: {fileID: 383386730868120914, guid: c1f1dfbd089595837a0d623d89360bea,
     type: 3}
+  itemPurchaseMenu: {fileID: 9134860417060343301, guid: b642b5745a74cd2eeaeca93c87d86a4b,
+    type: 3}

@@ -24,6 +24,7 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] private float burstInterval;
     [SerializeField] private bool continueSpawning = true;
     [SerializeField] private GameObject enemyTarget;
+    [SerializeField] private CreateItemMenu itemPurchaseMenu;
     private Quaternion defualtRotation;
 
     public float BaseSpawnRate
@@ -138,6 +139,7 @@ public class EnemyGenerator : MonoBehaviour
 
     public IEnumerator EnemyBurst(int enemyNumber)
     {
+        itemPurchaseMenu.AddNewPurchasables(waveNumber);
         AddNewEnemies();
         for(int i = 0; i < enemyNumber; i++)
         {

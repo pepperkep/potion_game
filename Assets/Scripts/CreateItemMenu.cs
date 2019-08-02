@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class CreateItemMenu : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CreateItemMenu : MonoBehaviour
     public struct Purchasable
     {
         public GameObject ItemToPurchasable;
+        public string Name;
         public int PiecePrice;
         public int WaveToBuy;
     }
@@ -39,12 +41,16 @@ public class CreateItemMenu : MonoBehaviour
         {
             if(purchasableItems[i].WaveToBuy == waveNumber){
                 GameObject PurchasableItemUI = Instantiate(basePurchasableUI, transform);
+
                 EventTrigger trigger = PurchasableItemUI.GetComponent<EventTrigger>();
                 EventTrigger.Entry entry = new EventTrigger.Entry();
                 entry.eventID = EventTriggerType.BeginDrag;
                 int tempInt = i;
                 entry.callback.AddListener((data) => { BuyItem(tempInt); });
                 trigger.triggers.Add(entry);
+
+                TextMeshProUGUI textChild = PurchasableItemUI.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                textChild.SetText(purchasableItems[i].Name + "\n{0} Pieces", purchasableItems[i].PiecePrice);
             }
         }
     }
