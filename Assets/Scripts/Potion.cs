@@ -12,13 +12,16 @@ public class Potion : MonoBehaviour
     [Tooltip("Explosion instantiated when shaken potion is released")]
     [SerializeField] private string explosionPoolName = "";
     [Header("Potion Shake Requirements")]
+    [SerializeField] private bool directInputToShake = true;
     [Tooltip("Times direction must be changed to shake potion")]
-    [SerializeField] private int shakeThreshold = 200;
+    [SerializeField] private float shakeThreshold = 200;
     [Tooltip("Time all direction changes must happen to be shaken. Times shaken resets after this amount of time.")]
     [SerializeField] private float maxShakeTime = 2f;
     [Tooltip("Minimum angle of direction change for it to count towards the shake threshold.")]
     [SerializeField] private int shakeAngle = 30;
     [Tooltip("Time for potion to explode after being triggered by another explosion")]
+    [SerializeField] private float necessarySpeed = 3f;
+    [SerializeField] private int speedThreshold = 20;
     [SerializeField] private float fuseTime = 2.0f;
     [SerializeField] private int explosionColorChanges = 10;
 
@@ -30,7 +33,7 @@ public class Potion : MonoBehaviour
         get => changeColor;
         set => changeColor = value;
     }
-    public int ShakeThreshold
+    public float ShakeThreshold
     {
         get => shakeThreshold;
         set => shakeThreshold = value;
@@ -49,11 +52,22 @@ public class Potion : MonoBehaviour
         get => fuseTime;
         set => fuseTime = value;
     }
+    public float NecessarySpeed
+    {
+        get => necessarySpeed;
+        set => necessarySpeed = value;
+    }
+    public int SpeedThreshold
+    {
+        get => speedThreshold;
+        set => speedThreshold = value;
+    }
 
     //Drag drop component to get if potion is being dragged
     private DragDrop dragComponent;
     //current shaken amount
-    private int shakeAmount = 0;
+    private float shakeAmount = 0;
+    private int speedAmount = 0;
     //Last position to determine displacement next update
     private Vector3 lastPosition;
     //Last displament to determine if direction has changed
@@ -77,32 +91,46 @@ public class Potion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Determine current displacement
-        Vector3 displacement = transform.position - lastPosition;
-
-        //Increase shake amount if angle is large enough
-        if(Vector3.Angle(displacement, lastDisplacment) > ShakeAngle)
+        if(!directInputToShake)
         {
-            shakeAmount++;
-            isShaking = true;
+            //Determine current displacement
+            Vector3 displacement = transform.position - lastPosition;
+            float speed = displacement.magnitude / Time.deltaTime;
+
+            //Increase shake amount if angle is large enough
+            if(Vector3.Angle(displacement, lastDisplacment) > ShakeAngle)
+            {
+                shakeAmount++;
+                isShaking = true;
+            }
+            if(speed > NecessarySpeed)
+            {
+                speedAmount++;
+            }
+
+            //Store information needed for next update
+            lastPosition = transform.position;
+            lastDisplacment = displacement;
         }
         else
         {
-            //Reset shake amount if too much time has passed
-            if(shakeTime > MaxShakeTime)
+            if(dragComponent.GetIsDragging() && Input.GetKey("mouse 1"))
             {
-                shakeAmount = 0;
-                isShaking = false;
-                shakeTime = 0;
+                shakeAmount += Time.deltaTime;
+                isShaking = true;
             }
         }
-
-        //Store information needed for next update
-        lastPosition = transform.position;
-        lastDisplacment = displacement;
+        //Reset shake amount if too much time has passed
+        if(shakeTime > MaxShakeTime)
+        {
+            shakeAmount = 0;
+            isShaking = false;
+            shakeTime = 0;
+            speedAmount = 0;
+        }
 
         //Change state to shaken if shake threshold has been reached
-        if(shakeAmount > ShakeThreshold)
+        if(shakeAmount > ShakeThreshold && (directInputToShake || speedAmount > SpeedThreshold))
         {
             Shaken = true;
             displaySprite.color = ChangeColor;

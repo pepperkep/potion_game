@@ -21,7 +21,7 @@ public class ForceTurn : MonoBehaviour
         if(col.gameObject.CompareTag("Enemy"))
         {
             Movement enemyMovement = col.gameObject.GetComponent<Movement>();
-            if(enemyMovement.Target.position != null)
+            if(enemyMovement.Target != null)
             {
                 enemyMovement.TurnRoutine = enemyMovement.TurnTowards(enemyMovement.Target.position);
             }
