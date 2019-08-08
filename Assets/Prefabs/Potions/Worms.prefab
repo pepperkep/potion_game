@@ -112,6 +112,11 @@ PrefabInstance:
       propertyPath: changeColor.b
       value: 0.6784314
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: returnPoolName
+      value: WormPotion
+      objectReference: {fileID: 0}
     - target: {fileID: 7745562258163053673, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: m_Radius

@@ -115,20 +115,6 @@ MonoBehaviour:
   destroyOnDamage: 0
   returnPoolName: 
   debuffPoolName: BlackHoleStun
---- !u!114 &4455213634331562901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317778420994696588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca80c13713da07d99f0197ea977f920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnTowardsPoints:
-  - {fileID: 3595280011493163500}
 --- !u!58 &7262327055655427137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -145,6 +131,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4455213634331562901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317778420994696588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca80c13713da07d99f0197ea977f920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnTowardsPoints:
+  - {fileID: 3595280011493163500}
 --- !u!1001 &6395314601352529953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -246,6 +246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: duration
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219067053384688174, guid: 397447408eb1e724d963062ee5f52727,
+        type: 3}
+      propertyPath: startsFires
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7123109323900946957, guid: 397447408eb1e724d963062ee5f52727,
         type: 3}

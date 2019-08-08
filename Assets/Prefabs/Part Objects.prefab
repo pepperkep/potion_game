@@ -56,8 +56,8 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 3
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -80,5 +80,10 @@ MonoBehaviour:
     Name: Duplicator
     PiecePrice: 200
     WaveToBuy: 3
+  - ItemToPurchasable: {fileID: 3512730018995502559, guid: 0a9fd34286bdc23558ffcc90d1d63f19,
+      type: 3}
+    Name: Regenerator
+    PiecePrice: 400
+    WaveToBuy: 5
   basePurchasableUI: {fileID: 1579031107592271619, guid: 709eed3686d4965c39b8170cfaf6be7b,
     type: 3}

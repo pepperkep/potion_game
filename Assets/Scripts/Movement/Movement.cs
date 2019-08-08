@@ -134,7 +134,7 @@ public abstract class Movement : MonoBehaviour
             yield return new WaitForSeconds(turnInterval);
             currentTime += turnInterval;
         }
-        TurnTowards(Target.position);
+        turnRoutine = TurnTowards(Target.position);
     }
 
     public abstract void DetermineMove();

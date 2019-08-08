@@ -239,6 +239,11 @@ PrefabInstance:
       propertyPath: changeColor.b
       value: 0.58431375
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: returnPoolName
+      value: GravityPotion
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32118094695afaebdba5e22512d73842, type: 3}

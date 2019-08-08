@@ -11,6 +11,8 @@ public class Potion : MonoBehaviour
     [SerializeField] private Color changeColor;
     [Tooltip("Explosion instantiated when shaken potion is released")]
     [SerializeField] private string explosionPoolName = "";
+    [SerializeField] private GameObject respawnMarker;
+    [SerializeField] private string returnPoolName = "";
     [Header("Potion Shake Requirements")]
     [SerializeField] private bool directInputToShake = true;
     [Tooltip("Times direction must be changed to shake potion")]
@@ -82,10 +84,14 @@ public class Potion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastPosition = transform.position;
-        lastDisplacment = Vector3.zero;
         displaySprite = gameObject.GetComponent<SpriteRenderer>();
         dragComponent = gameObject.GetComponent<DragDrop>();
+    }
+
+    void OnEnable()
+    {
+        lastPosition = transform.position;
+        lastDisplacment = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -182,6 +188,12 @@ public class Potion : MonoBehaviour
     public void Explode()
     {
         ObjectPool.Instance.SpawnObject(explosionPoolName, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 1), this.transform.rotation);
-        Destroy(this.gameObject);
+        GameObject marker = Instantiate(respawnMarker, transform.position, Quaternion.identity);
+        RespawnPotion respawnComponent = marker.GetComponent<RespawnPotion>();
+        if(respawnComponent != null)
+        {
+            respawnComponent.PotionPoolName = returnPoolName;
+        }
+        ObjectPool.Instance.AddToPool(returnPoolName, this.gameObject);
     }
 }

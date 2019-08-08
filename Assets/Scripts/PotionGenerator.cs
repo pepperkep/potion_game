@@ -7,7 +7,7 @@ public class PotionGenerator : MonoBehaviour
     [System.Serializable]
     public struct PotionTypeGenerator
     {
-        public GameObject PotionPrefab;
+        public string PotionPoolName;
         public float Probability;
     }
 
@@ -101,8 +101,8 @@ public class PotionGenerator : MonoBehaviour
     //Chose potion randomly from prefab list at potion position
     public void CreatePotion(Vector3 potionPosition)
     {
-        GameObject nextPotion = PotionGenerationData[ChooseRandomPotion()].PotionPrefab;
-        nextPotion = Instantiate(nextPotion, potionPosition, Quaternion.identity);
+        string nextPotionPool = PotionGenerationData[ChooseRandomPotion()].PotionPoolName;
+        GameObject nextPotion = ObjectPool.Instance.SpawnObject(nextPotionPool, potionPosition, Quaternion.identity);
         nextPotion.GetComponent<DragDrop>().DragCamera = potionCamera;
     }
 }

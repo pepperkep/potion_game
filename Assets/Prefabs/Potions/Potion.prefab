@@ -160,6 +160,9 @@ MonoBehaviour:
   shaken: 0
   changeColor: {r: 0.57254905, g: 0.8352941, b: 0.9019608, a: 1}
   explosionPoolName: BasicExplosion
+  respawnMarker: {fileID: 8394218284393901953, guid: 2ee616256d6035c11b2836458e61503a,
+    type: 3}
+  returnPoolName: BasicPotion
   directInputToShake: 1
   shakeThreshold: 0.5
   maxShakeTime: 1

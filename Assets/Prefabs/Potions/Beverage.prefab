@@ -102,6 +102,11 @@ PrefabInstance:
       propertyPath: explosionPoolName
       value: BottleBreak
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: returnPoolName
+      value: BeveragePotion
+      objectReference: {fileID: 0}
     - target: {fileID: 2162721824721691271, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: bulletSpawnPoolName

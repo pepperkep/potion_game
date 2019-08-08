@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: explosionColorChanges
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3079288384789444294, guid: 32118094695afaebdba5e22512d73842,
+        type: 3}
+      propertyPath: returnPoolName
+      value: ElectricPotion
+      objectReference: {fileID: 0}
     - target: {fileID: 612962857535624500, guid: 32118094695afaebdba5e22512d73842,
         type: 3}
       propertyPath: m_LocalScale.x

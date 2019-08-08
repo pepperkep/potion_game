@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: explosionPoolName
       value: ElectricExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 8219067053384688174, guid: 397447408eb1e724d963062ee5f52727,
+        type: 3}
+      propertyPath: startsFires
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7123109323900946957, guid: 397447408eb1e724d963062ee5f52727,
         type: 3}
       propertyPath: damage
