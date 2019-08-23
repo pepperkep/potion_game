@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BeverageEffect : TempEffect
 {
+    [SerializeField] private float slowAmount = 0.1f;
+
     public override void FindTarget()
     {
         if(transform.parent != null)
@@ -21,6 +23,7 @@ public class BeverageEffect : TempEffect
         if(targetComponent != null)
         {
             ((Movement)targetComponent).AlcoholContent++;
+            ((Movement)targetComponent).SpeedReductionSum += slowAmount;
         }
     }
 
@@ -29,6 +32,7 @@ public class BeverageEffect : TempEffect
         if(targetComponent != null)
         {
             ((Movement)targetComponent).AlcoholContent--;
+            ((Movement)targetComponent).SpeedReductionSum -= slowAmount;
         }
     }
 }

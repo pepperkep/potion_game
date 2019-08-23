@@ -78,6 +78,7 @@ MonoBehaviour:
   - {fileID: 2706529187891358899}
   - {fileID: 6004443494529487162}
   - {fileID: 726293397691036231}
+  stopAfterReachingTransform: 0
 --- !u!1 &4808075995703835221
 GameObject:
   m_ObjectHideFlags: 0

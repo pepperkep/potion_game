@@ -139,28 +139,28 @@ MonoBehaviour:
   - name: BasicPotion
     prefab: {fileID: 8312631750748496273, guid: 32118094695afaebdba5e22512d73842,
       type: 3}
-    size: 90
+    size: 200
   - name: ElectricPotion
     prefab: {fileID: 6007222613536842529, guid: 60758d2225f57bb52b96ef6513cff2a0,
       type: 3}
-    size: 90
+    size: 30
   - name: WormPotion
     prefab: {fileID: 6994576681606595654, guid: e2c3a9328377f6fedafabe69f5b9d5b7,
       type: 3}
-    size: 90
+    size: 30
   - name: SizePotion
     prefab: {fileID: 5553106106814839139, guid: 2bba06c321884993b967f2bc1c82ce0f,
       type: 3}
-    size: 90
+    size: 20
   - name: BeveragePotion
     prefab: {fileID: 1745614238400531460, guid: d3382d366127602f6ae6fbb94ea91378,
       type: 3}
-    size: 90
+    size: 20
   - name: GravityPotion
     prefab: {fileID: 3643541969858827102, guid: 4243cc2a2c4a8bc19a0326048e7ebc04,
       type: 3}
-    size: 90
+    size: 20
   - name: DurianPotion
     prefab: {fileID: 5411468620984314997, guid: de57ce8e024dc774298523cc497ac143,
       type: 3}
-    size: 90
+    size: 50

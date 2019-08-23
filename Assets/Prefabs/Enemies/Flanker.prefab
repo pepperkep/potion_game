@@ -16,8 +16,9 @@ MonoBehaviour:
   maximumSlow: 0.94
   turnSpeed: 0.0025
   turnInterval: 0.01
-  minStopTurn: 0.001
   rotatePerAlchol: 0.5
+  drunkMulitplier: 6
+  endTurnClosenessSquare: 2
   turnTowardsTargetRange: 5.5
 --- !u!1001 &5708391882125334876
 PrefabInstance:

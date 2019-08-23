@@ -6,13 +6,14 @@ public class ForceTurn : MonoBehaviour
 {
 
     [SerializeField] private List<Transform> turnTowardsPoints = new List<Transform>();
+    [SerializeField] private bool stopAfterReachingTransform = true;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Enemy"))
         {
             Movement enemyMovement = col.gameObject.GetComponent<Movement>();
-            enemyMovement.TurnRoutine = enemyMovement.TurnTowards(FindClosestTurnPoint(col.transform.position));
+            enemyMovement.TurnRoutine = enemyMovement.TurnTowards(FindClosestTurnPoint(col.transform.position), stopAfterReachingTransform);
         }
     }
 
@@ -23,12 +24,12 @@ public class ForceTurn : MonoBehaviour
             Movement enemyMovement = col.gameObject.GetComponent<Movement>();
             if(enemyMovement.Target != null)
             {
-                enemyMovement.TurnRoutine = enemyMovement.TurnTowards(enemyMovement.Target.position);
+                enemyMovement.TurnRoutine = enemyMovement.TurnTowards(enemyMovement.Target);
             }
         }
     }
 
-    public Vector3 FindClosestTurnPoint(Vector3 enemyPosition)
+    public Transform FindClosestTurnPoint(Vector3 enemyPosition)
     {
         float lowestDistanceSquared = float.PositiveInfinity;
         Transform closestTransform = null;
@@ -40,6 +41,6 @@ public class ForceTurn : MonoBehaviour
                 closestTransform = turnTowardsPoints[i];
             }
         }
-        return closestTransform.position;
+        return closestTransform;
     }
 }

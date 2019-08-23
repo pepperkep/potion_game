@@ -48,3 +48,4 @@ MonoBehaviour:
   returnPoolName: DrunkEffect
   effectForever: 0
   targetComponent: {fileID: 0}
+  slowAmount: 0.025
